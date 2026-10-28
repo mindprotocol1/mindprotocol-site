@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merci · Apprends à Apprendre · MindProtocol</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#F7F4EF;color:#0A0A0A;min-height:100vh;display:flex;flex-direction:column}
+nav{background:#0F1E38;padding:1.25rem 3rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#F7F4EF;text-decoration:none}
+.logo span{color:#1B6CA8}
+.hero{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 2rem}
+.box{max-width:720px;width:100%;text-align:center}
+.check{font-size:4rem;margin-bottom:1.5rem}
+.punch{font-family:'DM Mono',monospace;font-size:1.35rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1B6CA8;margin-bottom:1.5rem}
+.badge{display:inline-flex;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;background:#1B6CA8;color:#0A0A0A;padding:.35rem .85rem;margin-bottom:1.5rem}
+.title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;margin-bottom:.75rem;line-height:1.1}
+.title em{font-style:italic;color:#1B6CA8}
+.sub{font-size:1rem;color:#8A8070;line-height:1.75;margin-bottom:2rem;font-weight:300;max-width:560px;margin-left:auto;margin-right:auto}
+.lang-section{margin-bottom:2.5rem}
+.lang-label{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#8A8070;margin-bottom:1rem;display:block}
+.lang-buttons{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;max-width:520px;margin:0 auto}
+.dl-btn{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;border:1px solid #D8D0C4;background:white;text-decoration:none;color:#0A0A0A;transition:all .2s;border-radius:2px;cursor:pointer}
+.dl-btn:hover{border-color:#1B6CA8;background:#FAF8F5;transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.dl-flag{font-size:1.8rem;margin-right:.75rem}
+.dl-info{text-align:left;flex:1}
+.dl-lang{font-family:'DM Mono',monospace;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:#8A8070;margin-bottom:.2rem}
+.dl-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;line-height:1.2}
+.dl-arrow{font-size:.95rem;font-weight:600;color:#1B6CA8;white-space:nowrap;background:rgba(0,0,0,.04);padding:.4rem .8rem;border-radius:2px}
+.note{font-size:.82rem;color:#8A8070;line-height:1.75;padding:1.25rem 1.5rem;background:#EDE8DF;border-radius:2px;text-align:left;max-width:520px;margin:0 auto}
+.note strong{color:#0A0A0A}
+.back{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;color:#8A8070;text-decoration:none;margin-top:1.5rem;transition:color .2s}
+.back:hover{color:#0A0A0A}
+footer{text-align:center;padding:1.5rem;font-size:.75rem;color:#8A8070;border-top:1px solid #D8D0C4}
+@media(max-width:600px){.lang-buttons{grid-template-columns:1fr}nav{padding:1rem 1.5rem}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">Mind<span>Protocol</span></a>
+</nav>
+<div class="hero">
+  <div class="box">
+    <div class="punch" id="i18n-punch">Go, transforme-toi.</div>
+    <div class="badge" id="i18n-badge">Programme 03 · Achat confirmé</div>
+    <h1 class="title" id="i18n-title">Merci pour<br><em>votre confiance !</em></h1>
+    <p class="sub" id="i18n-sub">Votre paiement a été validé. Choisissez la langue dans laquelle vous souhaitez télécharger votre programme. Toutes les versions sont incluses dans votre achat.</p>
+
+    <div class="lang-section">
+      <span class="lang-label" id="i18n-langlabel">Choisissez votre langue de téléchargement</span>
+      <div class="lang-buttons">
+        <a href="https://fichiers.mind-protocol.com/apprends-a-apprendre-fr.pdf" class="dl-btn" download>
+          <span class="dl-flag">🇫🇷</span>
+          <div class="dl-info">
+            <div class="dl-lang">Français</div>
+            <div class="dl-name">Apprends à Apprendre</div>
+          </div>
+          <span class="dl-arrow">↓ PDF</span>
+        </a>
+        <a href="https://fichiers.mind-protocol.com/apprends-a-apprendre-en.pdf" class="dl-btn" download>
+          <span class="dl-flag">🇬🇧</span>
+          <div class="dl-info">
+            <div class="dl-lang">English</div>
+            <div class="dl-name">Learn to Learn</div>
+          </div>
+          <span class="dl-arrow">↓ PDF</span>
+        </a>
+        <a href="https://fichiers.mind-protocol.com/apprends-a-apprendre-de.pdf" class="dl-btn" download>
+          <span class="dl-flag">🇩🇪</span>
+          <div class="dl-info">
+            <div class="dl-lang">Deutsch</div>
+            <div class="dl-name">Lernen lernen</div>
+          </div>
+          <span class="dl-arrow">↓ PDF</span>
+        </a>
+        <a href="https://fichiers.mind-protocol.com/apprends-a-apprendre-es.pdf" class="dl-btn" download>
+          <span class="dl-flag">🇪🇸</span>
+          <div class="dl-info">
+            <div class="dl-lang">Español</div>
+            <div class="dl-name">Aprende a Aprender</div>
+          </div>
+          <span class="dl-arrow">↓ PDF</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="note" id="i18n-note">
+      💾 <strong>Conseil :</strong> Sauvegardez le PDF sur votre appareil dès le téléchargement. Vous pouvez télécharger toutes les versions, elles sont toutes incluses dans votre achat.<br><br>
+      ❓ <strong>Un problème ?</strong> Contactez-nous à <strong>contact@mind-protocol.com</strong>, nous répondons sous 24h.
+    </div>
+    <a href="/" class="back" id="i18n-back">← Retour au site MindProtocol</a>
+  </div>
+</div>
+<footer id="i18n-footer">© 2025 MindProtocol · mind-protocol.com · Produit numérique · Achat définitif</footer>
+<script>
+(function(){
+  var T = {
+    fr:{badge:"Programme 03 · Achat confirmé",title:"Merci pour<br><em>votre confiance !</em>",punch:"Go, transforme-toi.",sub:"Votre paiement a été validé. Choisissez la langue dans laquelle vous souhaitez télécharger votre programme. Toutes les versions sont incluses dans votre achat.",langlabel:"Choisissez votre langue de téléchargement",note:"💾 <strong>Conseil :</strong> Sauvegardez le PDF sur votre appareil dès le téléchargement. Vous pouvez télécharger toutes les versions, elles sont toutes incluses dans votre achat.<br><br>❓ <strong>Un problème ?</strong> Contactez-nous à <strong>contact@mind-protocol.com</strong>, nous répondons sous 24h.",back:"← Retour au site MindProtocol",footer:"© 2025 MindProtocol · mind-protocol.com · Produit numérique · Achat définitif"},
+    en:{badge:"Program 03 · Purchase confirmed",title:"Thank you for<br><em>your trust!</em>",punch:"Go, transform yourself.",sub:"Your payment has been confirmed. Choose the language you'd like to download your program in. All versions are included in your purchase.",langlabel:"Choose your download language",note:"💾 <strong>Tip:</strong> Save the PDF to your device as soon as you download it. You can download all versions — they're all included in your purchase.<br><br>❓ <strong>Need help?</strong> Contact us at <strong>contact@mind-protocol.com</strong>, we reply within 24h.",back:"← Back to MindProtocol",footer:"© 2025 MindProtocol · mind-protocol.com · Digital product · Final sale"},
+    de:{badge:"Programm 03 · Kauf bestätigt",title:"Danke für<br><em>dein Vertrauen!</em>",punch:"Los geht's, verändere dich.",sub:"Ihre Zahlung wurde bestätigt. Wählen Sie die Sprache, in der Sie Ihr Programm herunterladen möchten. Alle Versionen sind in Ihrem Kauf enthalten.",langlabel:"Wählen Sie Ihre Download-Sprache",note:"💾 <strong>Tipp:</strong> Speichern Sie die PDF-Datei direkt nach dem Herunterladen auf Ihrem Gerät. Alle Sprachversionen sind in Ihrem Kauf enthalten.<br><br>❓ <strong>Ein Problem?</strong> Kontaktieren Sie uns unter <strong>contact@mind-protocol.com</strong>, wir antworten innerhalb von 24 Stunden.",back:"← Zurück zu MindProtocol",footer:"© 2025 MindProtocol · mind-protocol.com · Digitales Produkt · Endgültiger Kauf"},
+    es:{badge:"Programa 03 · Compra confirmada",title:"Gracias por<br><em>tu confianza!</em>",punch:"Vamos, transfórmate.",sub:"Tu pago ha sido confirmado. Elige el idioma en el que deseas descargar tu programa. Todas las versiones están incluidas en tu compra.",langlabel:"Elige tu idioma de descarga",note:"💾 <strong>Consejo:</strong> Guarda el PDF en tu dispositivo en cuanto lo descargues. Todas las versiones están incluidas en tu compra.<br><br>❓ <strong>¿Algún problema?</strong> Escríbenos a <strong>contact@mind-protocol.com</strong>, respondemos en 24h.",back:"← Volver a MindProtocol",footer:"© 2025 MindProtocol · mind-protocol.com · Producto digital · Compra definitiva"}
+  };
+  var saved = localStorage.getItem('mp_lang');
+  var lang = saved || (navigator.language || 'fr').substring(0,2).toLowerCase();
+  if(!T[lang]) lang = 'fr';
+  document.documentElement.lang = lang;
+  var t = T[lang];
+  document.getElementById('i18n-badge').innerHTML = t.badge;
+  document.getElementById('i18n-title').innerHTML = t.title;
+  document.getElementById('i18n-punch').innerHTML = t.punch;
+  document.getElementById('i18n-sub').innerHTML = t.sub;
+  document.getElementById('i18n-langlabel').innerHTML = t.langlabel;
+  document.getElementById('i18n-note').innerHTML = t.note;
+  document.getElementById('i18n-back').innerHTML = t.back;
+  document.getElementById('i18n-footer').innerHTML = t.footer;
+})();
+</script>
+</body>
+</html>

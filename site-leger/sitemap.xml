@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mind-protocol.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mind-protocol.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mind-protocol.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mind-protocol.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mind-protocol.com/"/>
+  </url>
+  <url>
+    <loc>https://mind-protocol.com/pages/catalogue.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mind-protocol.com/pages/catalogue.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mind-protocol.com/pages/catalogue.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mind-protocol.com/pages/catalogue.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mind-protocol.com/pages/catalogue.html"/>
+  </url>
+  <url>
+    <loc>https://mind-protocol.com/pages/legal.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

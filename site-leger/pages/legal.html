@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales · CGV · Confidentialité | MindProtocol</title>
+<meta name="description" content="Mentions légales, CGV, politique d'achat numérique et politique de confidentialité de MindProtocol. Disponibles en français, anglais, allemand et espagnol.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mind-protocol.com/pages/legal.html">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#F7F4EF;color:#0A0A0A;min-height:100vh;display:flex;flex-direction:column}
+nav{background:#0A0A0A;padding:1.25rem 3rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#F7F4EF;text-decoration:none}
+.logo span{color:#B8962E}
+.lang-switcher{display:flex;gap:.4rem}
+.lang-btn{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;padding:.3rem .55rem;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.5);cursor:pointer;background:transparent;transition:all .2s}
+.lang-btn:hover,.lang-btn.active{border-color:#B8962E;color:#B8962E}
+.legal-tabs{background:#0A0A0A;padding:0 3rem;display:flex;gap:0;overflow-x:auto}
+.tab{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);padding:1rem 1.5rem;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;text-decoration:none;display:block}
+.tab:hover{color:rgba(255,255,255,.8)}
+.tab.active{color:#B8962E;border-bottom-color:#B8962E}
+.content{flex:1;max-width:860px;margin:0 auto;padding:4rem 2rem;width:100%}
+.page-section{display:none}
+.page-section.active{display:block}
+h1{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;margin-bottom:.5rem;line-height:1.1}
+.last-update{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:#8A8070;margin-bottom:2.5rem}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;margin:2rem 0 .75rem;color:#0A0A0A}
+p{font-size:.92rem;line-height:1.8;color:#444;margin-bottom:1rem}
+ul{padding-left:1.5rem;margin-bottom:1rem}
+li{font-size:.92rem;line-height:1.8;color:#444;margin-bottom:.3rem}
+strong{color:#0A0A0A;font-weight:600}
+a{color:#B8962E;text-decoration:none}
+a:hover{text-decoration:underline}
+.highlight-box{background:#EDE8DF;border-left:3px solid #B8962E;padding:1.25rem 1.5rem;margin:1.5rem 0;border-radius:0 2px 2px 0}
+.highlight-box p{margin:0;font-size:.88rem}
+footer{background:#0A0A0A;color:rgba(247,244,239,.4);text-align:center;padding:2rem;font-size:.75rem}
+footer a{color:rgba(247,244,239,.4);text-decoration:none;margin:0 .75rem}
+footer a:hover{color:#B8962E}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:1.5rem 0}
+.contact-card{background:white;border:1px solid #D8D0C4;padding:1.5rem;border-radius:2px}
+.contact-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.contact-card p{font-size:.85rem;margin:0;color:#666}
+.contact-card a{color:#B8962E}
+@media(max-width:600px){nav{padding:1rem 1.5rem}.legal-tabs{padding:0 1rem}.content{padding:2.5rem 1.5rem}}
+</style>
+</head>
+<body>
+
+<script>
+(function(){
+  var lang=localStorage.getItem('mp_lang')||'fr';
+  var ok=['fr','en','de','es'];
+  if(ok.indexOf(lang)===-1)lang='fr';
+  window.MP_LANG=lang;
+})();
+</script>
+
+<nav>
+  <a href="/" class="logo">Mind<span>Protocol</span></a>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
+  </div>
+</nav>
+
+<div class="legal-tabs" id="tabBar">
+  <a class="tab active" onclick="showTab('mentions')" data-i18n="tab_mentions">Mentions légales</a>
+  <a class="tab" onclick="showTab('cgv')" data-i18n="tab_cgv">CGV</a>
+  <a class="tab" onclick="showTab('digital')" data-i18n="tab_digital">Politique d'achat numérique</a>
+  <a class="tab" onclick="showTab('privacy')" data-i18n="tab_privacy">Politique de confidentialité</a>
+  <a class="tab" onclick="showTab('contact')" data-i18n="tab_contact">Contact</a>
+</div>
+
+<div class="content">
+
+  <!-- MENTIONS LÉGALES -->
+  <div class="page-section active" id="sec-mentions">
+    <h1 data-i18n="mentions_h1">Mentions légales</h1>
+    <p class="last-update" data-i18n="last_update">Dernière mise à jour : mai 2025</p>
+
+    <h2 data-i18n="mentions_editor_title">Éditeur du site</h2>
+    <p><strong>MindProtocol</strong><br>
+    États-Unis d'Amérique<br>
+    Email : <a href="mailto:contact@mind-protocol.com">contact@mind-protocol.com</a></p>
+
+    <h2 data-i18n="mentions_host_title">Hébergement</h2>
+    <p><strong>Netlify, Inc.</strong><br>
+    44 Montgomery Street, Suite 300<br>
+    San Francisco, California 94104, USA<br>
+    <a href="https://www.netlify.com" target="_blank">www.netlify.com</a></p>
+
+    <h2 data-i18n="mentions_ip_title">Propriété intellectuelle</h2>
+    <p data-i18n="mentions_ip_text">L'ensemble du contenu présent sur le site mind-protocol.com (textes, programmes, exercices, graphiques, logos) est protégé par le droit d'auteur et appartient exclusivement à MindProtocol. Toute reproduction, représentation, modification ou exploitation non autorisée est strictement interdite.</p>
+
+    <h2 data-i18n="mentions_disclaimer_title">Limitation de responsabilité</h2>
+    <p data-i18n="mentions_disclaimer_text">Les programmes proposés par MindProtocol sont des contenus éducatifs basés sur des recherches en neurosciences. Ils ne constituent pas un avis médical, psychologique ou thérapeutique et ne remplacent en aucun cas un suivi professionnel de santé. En cas de symptômes sévères, consultez un professionnel de santé qualifié.</p>
+
+    <h2 data-i18n="mentions_law_title">Droit applicable</h2>
+    <p data-i18n="mentions_law_text">Le présent site et ses conditions d'utilisation sont soumis au droit applicable dans le pays de résidence de l'utilisateur pour ce qui concerne la protection des consommateurs, notamment la directive européenne 2011/83/UE pour les résidents de l'Union européenne.</p>
+  </div>
+
+  <!-- CGV -->
+  <div class="page-section" id="sec-cgv">
+    <h1 data-i18n="cgv_h1">Conditions Générales de Vente</h1>
+    <p class="last-update" data-i18n="last_update">Dernière mise à jour : mai 2025</p>
+
+    <h2 data-i18n="cgv_seller_title">Vendeur</h2>
+    <p data-i18n="cgv_seller_content">
+    <strong>Raison sociale :</strong> GB Products &amp; Services<br>
+    <strong>Nom commercial :</strong> MindProtocol<br>
+    <strong>Pays :</strong> États-Unis<br>
+    <strong>Email :</strong> <a href="mailto:contact@mind-protocol.com">contact@mind-protocol.com</a>
+</p>
+
+    <h2 data-i18n="cgv_products_title">Produits proposés</h2>
+    <p data-i18n="cgv_products_text">MindProtocol commercialise des programmes numériques téléchargeables (fichiers PDF) dans les domaines des neurosciences appliquées et du développement personnel. Chaque programme est disponible en 4 langues : français, anglais, allemand et espagnol.</p>
+
+    <h2 data-i18n="cgv_prices_title">Prix</h2>
+    <p data-i18n="cgv_prices_text">Les prix sont indiqués en euros (€), toutes taxes comprises. MindProtocol se réserve le droit de modifier ses prix à tout moment. Les prix applicables sont ceux en vigueur au moment de la commande.</p>
+
+    <h2 data-i18n="cgv_payment_title">Paiement</h2>
+    <p data-i18n="cgv_payment_text">Les paiements sont traités de manière sécurisée par Stripe Inc. Nous acceptons les cartes bancaires Visa, Mastercard et American Express. Aucune donnée bancaire n'est stockée sur nos serveurs.</p>
+
+    <h2 data-i18n="cgv_delivery_title">Livraison</h2>
+    <p data-i18n="cgv_delivery_text">Après validation du paiement, l'acheteur est redirigé vers une page de téléchargement sécurisée permettant d'accéder immédiatement aux fichiers PDF dans la langue de son choix. L'accès est permanent et sans limitation de durée.</p>
+
+    <h2 data-i18n="cgv_withdrawal_title">Droit de rétractation</h2>
+    <div class="highlight-box">
+      <p data-i18n="cgv_withdrawal_text"><strong>Conformément à l'article 16(m) de la directive européenne 2011/83/UE</strong>, le droit de rétractation de 14 jours ne s'applique pas aux contenus numériques fournis sur un support immatériel dont l'exécution a commencé avec l'accord préalable du consommateur et sa renonciation expresse à son droit de rétractation. En procédant au téléchargement immédiat, l'acheteur reconnaît expressément renoncer à son droit de rétractation. <strong>L'achat est donc définitif.</strong></p>
+    </div>
+  </div>
+
+  <!-- POLITIQUE D'ACHAT NUMÉRIQUE -->
+  <div class="page-section" id="sec-digital">
+    <h1 data-i18n="digital_h1">Politique d'achat numérique</h1>
+    <p class="last-update" data-i18n="last_update">Dernière mise à jour : mai 2025</p>
+
+    <div class="highlight-box">
+      <p data-i18n="digital_intro"><strong>Résumé :</strong> Les produits MindProtocol sont des fichiers numériques téléchargeables immédiatement. Conformément à la législation européenne, l'achat est définitif dès le téléchargement. Aucun remboursement n'est possible après accès au contenu.</p>
+    </div>
+
+    <h2 data-i18n="digital_what_title">Ce que vous achetez</h2>
+    <p data-i18n="digital_what_text">Chaque programme MindProtocol est un fichier PDF numérique de 100 à 180 pages, comprenant des explications scientifiques, des exercices guidés et un plan d'action structuré sur 90 jours. Le fichier est disponible en 4 langues incluses dans le prix d'achat.</p>
+
+    <h2 data-i18n="digital_access_title">Accès et téléchargement</h2>
+    <ul>
+      <li data-i18n="digital_access_1">Accès immédiat après paiement validé</li>
+      <li data-i18n="digital_access_2">Téléchargement en 4 langues disponibles (FR, EN, DE, ES)</li>
+      <li data-i18n="digital_access_3">Aucune limite de téléchargement, le lien reste actif</li>
+      <li data-i18n="digital_access_4">Compatible avec tous les appareils (PC, Mac, tablette, smartphone)</li>
+      <li data-i18n="digital_access_5">Aucun abonnement, aucuns frais récurrents</li>
+    </ul>
+
+    <h2 data-i18n="digital_norefund_title">Politique de non-remboursement</h2>
+    <p data-i18n="digital_norefund_text">Conformément à la directive européenne 2011/83/UE (article 16, alinéa m), les contenus numériques téléchargeables immédiatement sont expressément exclus du droit de rétractation de 14 jours, dès lors que le téléchargement a commencé avec l'accord préalable du consommateur. En cliquant sur le bouton de téléchargement, vous confirmez votre accord et renoncez expressément à votre droit de rétractation. Aucun remboursement ne pourra être accordé après accès au contenu numérique.</p>
+
+    <h2 data-i18n="digital_problem_title">Problème technique</h2>
+    <p data-i18n="digital_problem_text">Si vous rencontrez un problème technique lors du téléchargement (lien non fonctionnel, fichier corrompu), contactez-nous immédiatement à <a href="mailto:contact@mind-protocol.com">contact@mind-protocol.com</a>. Nous nous engageons à résoudre tout problème technique dans les 24 heures ouvrées.</p>
+  </div>
+
+  <!-- POLITIQUE DE CONFIDENTIALITÉ -->
+  <div class="page-section" id="sec-privacy">
+    <h1 data-i18n="privacy_h1">Politique de confidentialité</h1>
+    <p class="last-update" data-i18n="last_update">Dernière mise à jour : mai 2025</p>
+
+    <h2 data-i18n="privacy_collect_title">Données collectées</h2>
+    <p data-i18n="privacy_collect_text">Lors d'un achat sur notre site, nous collectons les données nécessaires au traitement de la commande : adresse email, pays de résidence. Ces données sont traitées exclusivement par notre partenaire de paiement Stripe Inc., dans le strict respect du RGPD.</p>
+    <p data-i18n="privacy_collect_text2">Nous ne collectons pas de données personnelles via notre site vitrine. Aucun cookie de tracking tiers n'est utilisé. Aucune donnée n'est vendue ou partagée avec des tiers à des fins commerciales.</p>
+
+    <h2 data-i18n="privacy_use_title">Utilisation des données</h2>
+    <ul>
+      <li data-i18n="privacy_use_1">Traitement de votre commande et envoi du lien de téléchargement</li>
+      <li data-i18n="privacy_use_2">Prévention des fraudes (via Stripe)</li>
+      <li data-i18n="privacy_use_3">Conformité aux obligations légales et fiscales</li>
+    </ul>
+
+    <h2 data-i18n="privacy_stripe_title">Stripe et sécurité des paiements</h2>
+    <p data-i18n="privacy_stripe_text">Les paiements sont traités par Stripe Inc., certifié PCI DSS niveau 1. MindProtocol ne stocke aucune donnée bancaire. Pour plus d'informations sur la politique de confidentialité de Stripe : <a href="https://stripe.com/privacy" target="_blank">stripe.com/privacy</a></p>
+
+    <h2 data-i18n="privacy_rights_title">Vos droits (RGPD)</h2>
+    <p data-i18n="privacy_rights_text">Conformément au Règlement Général sur la Protection des Données (RGPD, Règlement UE 2016/679), vous disposez des droits suivants : droit d'accès, de rectification, d'effacement, de limitation du traitement et de portabilité de vos données. Pour exercer ces droits, contactez-nous à <a href="mailto:contact@mind-protocol.com">contact@mind-protocol.com</a>.</p>
+
+    <h2 data-i18n="privacy_retention_title">Conservation des données</h2>
+    <p data-i18n="privacy_retention_text">Les données liées aux transactions sont conservées 10 ans conformément aux obligations comptables et fiscales légales. Les données purement fonctionnelles sont supprimées dès qu'elles ne sont plus nécessaires.</p>
+
+    <h2 data-i18n="privacy_cookies_title">Cookies</h2>
+    <p data-i18n="privacy_cookies_text">Notre site utilise uniquement un cookie fonctionnel de préférence de langue (localStorage), qui ne collecte aucune donnée personnelle et ne nécessite pas de consentement préalable. Aucun cookie publicitaire, analytique tiers ou de tracking n'est utilisé.</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="page-section" id="sec-contact">
+    <h1 data-i18n="contact_h1">Contact</h1>
+    <p class="last-update" data-i18n="last_update">Dernière mise à jour : mai 2025</p>
+
+    <p data-i18n="contact_intro">Pour toute question concernant vos achats, un problème technique ou une demande relative à vos données personnelles, nous sommes là pour vous aider. Nous répondons à toutes les demandes sous 24 heures ouvrées.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3 data-i18n="contact_support_title">Support client</h3>
+        <p data-i18n="contact_support_text">Pour tout problème de téléchargement, question sur votre commande ou accès à vos programmes.</p>
+        <p style="margin-top:.75rem"><a href="mailto:contact@mind-protocol.com">contact@mind-protocol.com</a></p>
+      </div>
+      <div class="contact-card">
+        <h3 data-i18n="contact_response_title">Délai de réponse</h3>
+        <p data-i18n="contact_response_text">Nous répondons à toutes les demandes sous 24 heures ouvrées, du lundi au vendredi.</p>
+      </div>
+    </div>
+
+    <h2 data-i18n="contact_crisis_title">Lignes d'urgence</h2>
+    <p data-i18n="contact_crisis_text">Si vous traversez une période de crise émotionnelle, voici les numéros d'aide disponibles dans votre pays :</p>
+    <ul>
+      <li><strong>France :</strong> 3114 (Numéro National de Prévention du Suicide, 24h/24)</li>
+      <li><strong>Belgique :</strong> 0800 32 123 (Centre de Prévention du Suicide, 24h/24)</li>
+      <li><strong>Suisse :</strong> 143 (La Main Tendue, 24h/24)</li>
+      <li><strong>Luxembourg :</strong> 45 45 45 (SOS Détresse, 24h/24)</li>
+      <li><strong>UK :</strong> 116 123 (Samaritans, 24h/24, gratuit)</li>
+      <li><strong>Deutschland :</strong> 0800 111 0 111 (Telefonseelsorge, 24h/24, kostenlos)</li>
+      <li><strong>España :</strong> 024 (Línea de Atención a la Conducta Suicida, 24h/24)</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div style="margin-bottom:.75rem">
+    <a href="pages/legal.html" onclick="showTab('mentions')">Mentions légales</a>
+    <a href="pages/legal.html" onclick="showTab('cgv')">CGV</a>
+    <a href="pages/legal.html" onclick="showTab('digital')">Politique d'achat numérique</a>
+    <a href="pages/legal.html" onclick="showTab('privacy')">Confidentialité</a>
+    <a href="pages/legal.html" onclick="showTab('contact')">Contact</a>
+  </div>
+  <div>© 2025 MindProtocol · mind-protocol.com</div>
+</footer>
+
+<script>
+var LEGAL_I18N = {
+  fr:{
+    tab_mentions:"Mentions légales",tab_cgv:"CGV",tab_digital:"Politique d'achat numérique",tab_privacy:"Politique de confidentialité",tab_contact:"Contact",
+    last_update:"Dernière mise à jour : mai 2025",
+    mentions_h1:"Mentions légales",
+    mentions_editor_title:"Éditeur du site",mentions_host_title:"Hébergement",mentions_ip_title:"Propriété intellectuelle",
+    mentions_ip_text:"L'ensemble du contenu présent sur mind-protocol.com est protégé par le droit d'auteur et appartient exclusivement à MindProtocol. Toute reproduction non autorisée est strictement interdite.",
+    mentions_disclaimer_title:"Limitation de responsabilité",
+    mentions_disclaimer_text:"Les programmes MindProtocol sont des contenus éducatifs basés sur des recherches en neurosciences. Ils ne constituent pas un avis médical ou thérapeutique et ne remplacent pas un suivi professionnel de santé.",
+    mentions_law_title:"Droit applicable",mentions_law_text:"Les présentes conditions sont soumises au droit applicable dans le pays de résidence de l'utilisateur, notamment la directive européenne 2011/83/UE pour les résidents de l'UE.",
+    cgv_h1:"Conditions Générales de Vente",cgv_seller_title:"Vendeur",cgv_seller_content:"<strong>Raison sociale :</strong> GB Products &amp; Services<br><strong>Nom commercial :</strong> MindProtocol<br><strong>Pays :</strong> États-Unis<br><strong>Email :</strong> <a href=\"mailto:contact@mind-protocol.com\">contact@mind-protocol.com</a>",cgv_products_title:"Produits proposés",
+    cgv_products_text:"MindProtocol commercialise des programmes numériques PDF dans les domaines des neurosciences appliquées. Chaque programme est disponible en 4 langues : français, anglais, allemand et espagnol.",
+    cgv_prices_title:"Prix",cgv_prices_text:"Les prix sont indiqués en euros (€), toutes taxes comprises. Les prix applicables sont ceux en vigueur au moment de la commande.",
+    cgv_payment_title:"Paiement",cgv_payment_text:"Les paiements sont traités de manière sécurisée par Stripe Inc. Nous acceptons Visa, Mastercard et American Express. Aucune donnée bancaire n'est stockée sur nos serveurs.",
+    cgv_delivery_title:"Livraison",cgv_delivery_text:"Après validation du paiement, l'acheteur est redirigé vers une page de téléchargement immédiat. L'accès est permanent et sans limitation de durée.",
+    cgv_withdrawal_title:"Droit de rétractation",
+    cgv_withdrawal_text:"Conformément à l'article 16(m) de la directive européenne 2011/83/UE, le droit de rétractation ne s'applique pas aux contenus numériques téléchargés immédiatement. En procédant au téléchargement, l'acheteur renonce expressément à son droit de rétractation. L'achat est définitif.",
+    
+    digital_h1:"Politique d'achat numérique",
+    digital_intro:"Résumé : Les produits MindProtocol sont des fichiers numériques téléchargeables immédiatement. Conformément à la législation européenne, l'achat est définitif dès le téléchargement.",
+    digital_what_title:"Ce que vous achetez",digital_what_text:"Chaque programme est un PDF de 100 à 180 pages avec exercices guidés et plan 90 jours. Disponible en 4 langues incluses dans le prix.",
+    digital_access_title:"Accès et téléchargement",
+    digital_access_1:"Accès immédiat après paiement validé",digital_access_2:"4 langues disponibles (FR, EN, DE, ES)",digital_access_3:"Aucune limite de téléchargement",digital_access_4:"Compatible tous appareils",digital_access_5:"Aucun abonnement",
+    digital_norefund_title:"Politique de non-remboursement",
+    digital_norefund_text:"Conformément à la directive 2011/83/UE (article 16m), les contenus numériques téléchargeables sont exclus du droit de rétractation. En téléchargeant, vous confirmez votre accord et renoncez expressément à ce droit. Aucun remboursement après accès au contenu.",
+    digital_problem_title:"Problème technique",digital_problem_text:"En cas de problème technique lors du téléchargement, contactez-nous à contact@mind-protocol.com. Nous résolvons tout problème dans les 24 heures ouvrées.",
+    privacy_h1:"Politique de confidentialité",privacy_collect_title:"Données collectées",
+    privacy_collect_text:"Lors d'un achat, nous collectons l'email et le pays de résidence, traités exclusivement par Stripe Inc. dans le respect du RGPD.",
+    privacy_collect_text2:"Aucun cookie de tracking tiers. Aucune donnée vendue ou partagée à des fins commerciales.",
+    privacy_use_title:"Utilisation des données",privacy_use_1:"Traitement de votre commande",privacy_use_2:"Prévention des fraudes (via Stripe)",privacy_use_3:"Conformité aux obligations légales",
+    privacy_stripe_title:"Stripe et sécurité",privacy_stripe_text:"Paiements traités par Stripe Inc., certifié PCI DSS niveau 1. MindProtocol ne stocke aucune donnée bancaire.",
+    privacy_rights_title:"Vos droits (RGPD)",privacy_rights_text:"Vous disposez des droits d'accès, rectification, effacement et portabilité. Exercez-les à : contact@mind-protocol.com",
+    privacy_retention_title:"Conservation des données",privacy_retention_text:"Données de transaction conservées 10 ans (obligations légales). Données fonctionnelles supprimées dès que possible.",
+    privacy_cookies_title:"Cookies",privacy_cookies_text:"Uniquement un cookie fonctionnel de préférence de langue (localStorage). Aucun cookie publicitaire ou de tracking.",
+    contact_h1:"Contact",contact_intro:"Pour toute question, problème technique ou demande RGPD, nous répondons sous 24 heures ouvrées.",
+    contact_support_title:"Support client",contact_support_text:"Pour tout problème de téléchargement, question sur votre commande ou accès à vos programmes.",
+    
+    contact_response_title:"Délai de réponse",contact_response_text:"Nous répondons à toutes les demandes sous 24 heures ouvrées, du lundi au vendredi.",
+    contact_crisis_title:"Lignes d'urgence",contact_crisis_text:"Si vous traversez une période de crise émotionnelle, voici les numéros d'aide disponibles :",
+  },
+  en:{
+    tab_mentions:"Legal notice",tab_cgv:"Terms & conditions",tab_digital:"Digital purchase policy",tab_privacy:"Privacy policy",tab_contact:"Contact",
+    last_update:"Last updated: May 2025",
+    mentions_h1:"Legal Notice",
+    mentions_editor_title:"Site publisher",mentions_host_title:"Hosting",mentions_ip_title:"Intellectual property",
+    mentions_ip_text:"All content on mind-protocol.com (texts, programs, exercises, graphics, logos) is protected by copyright and belongs exclusively to MindProtocol. Any unauthorized reproduction is strictly prohibited.",
+    mentions_disclaimer_title:"Disclaimer",
+    mentions_disclaimer_text:"MindProtocol programs are educational content based on neuroscience research. They do not constitute medical or therapeutic advice and do not replace professional healthcare. For severe symptoms, consult a qualified healthcare professional.",
+    mentions_law_title:"Applicable law",mentions_law_text:"These terms are governed by the law applicable in the user's country of residence, including EU Directive 2011/83/EU for EU residents.",
+    cgv_h1:"Terms & Conditions",cgv_seller_title:"Seller",cgv_seller_content:"<strong>Legal name:</strong> GB Products &amp; Services<br><strong>Trade name:</strong> MindProtocol<br><strong>Country:</strong> United States<br><strong>Email:</strong> <a href=\"mailto:contact@mind-protocol.com\">contact@mind-protocol.com</a>",cgv_products_title:"Products",
+    cgv_products_text:"MindProtocol offers downloadable digital PDF programs in applied neuroscience. Each program is available in 4 languages: French, English, German and Spanish.",
+    cgv_prices_title:"Prices",cgv_prices_text:"Prices are shown in euros (€), all taxes included. Applicable prices are those in force at the time of the order.",
+    cgv_payment_title:"Payment",cgv_payment_text:"Payments are processed securely by Stripe Inc. We accept Visa, Mastercard and American Express. No banking data is stored on our servers.",
+    cgv_delivery_title:"Delivery",cgv_delivery_text:"After payment validation, the buyer is redirected to an immediate download page. Access is permanent with no time limitation.",
+    cgv_withdrawal_title:"Right of withdrawal",
+    cgv_withdrawal_text:"In accordance with Article 16(m) of EU Directive 2011/83/EU, the 14-day right of withdrawal does not apply to digital content provided on an intangible medium where execution has begun with the consumer's prior agreement. By downloading, the buyer expressly waives their right of withdrawal. The purchase is final.",
+    
+    digital_h1:"Digital Purchase Policy",
+    digital_intro:"Summary: MindProtocol products are immediately downloadable digital files. In accordance with European law, the purchase is final upon download.",
+    digital_what_title:"What you're buying",digital_what_text:"Each program is a 100 to 180-page PDF with guided exercises and a 90-day action plan. Available in 4 languages included in the purchase price.",
+    digital_access_title:"Access and download",
+    digital_access_1:"Immediate access after payment validation",digital_access_2:"4 languages available (FR, EN, DE, ES)",digital_access_3:"No download limit",digital_access_4:"Compatible with all devices",digital_access_5:"No subscription, no recurring fees",
+    digital_norefund_title:"No-refund policy",
+    digital_norefund_text:"In accordance with EU Directive 2011/83/EU (Article 16m), immediately downloadable digital content is excluded from the right of withdrawal. By clicking the download button, you confirm your agreement and expressly waive this right. No refund can be granted after accessing the digital content.",
+    digital_problem_title:"Technical issue",digital_problem_text:"If you encounter a technical problem during download, contact us immediately at contact@mind-protocol.com. We resolve all technical issues within 24 business hours.",
+    privacy_h1:"Privacy Policy",privacy_collect_title:"Data collected",
+    privacy_collect_text:"Upon purchase, we collect your email and country of residence, processed exclusively by Stripe Inc. in compliance with GDPR.",
+    privacy_collect_text2:"No third-party tracking cookies. No data is sold or shared for commercial purposes.",
+    privacy_use_title:"Use of data",privacy_use_1:"Processing your order",privacy_use_2:"Fraud prevention (via Stripe)",privacy_use_3:"Compliance with legal obligations",
+    privacy_stripe_title:"Stripe and payment security",privacy_stripe_text:"Payments processed by Stripe Inc., PCI DSS level 1 certified. MindProtocol stores no banking data.",
+    privacy_rights_title:"Your rights (GDPR)",privacy_rights_text:"You have the rights of access, rectification, erasure and portability. Exercise them at: contact@mind-protocol.com",
+    privacy_retention_title:"Data retention",privacy_retention_text:"Transaction data retained for 10 years (legal obligations). Functional data deleted as soon as no longer needed.",
+    privacy_cookies_title:"Cookies",privacy_cookies_text:"We only use a functional language preference cookie (localStorage). No advertising or tracking cookies.",
+    contact_h1:"Contact",contact_intro:"For any question, technical issue or GDPR request, we respond within 24 business hours.",
+    contact_support_title:"Customer support",contact_support_text:"For any download issue, order question or access to your programs.",
+    
+    contact_response_title:"Response time",contact_response_text:"We respond to all requests within 24 business hours, Monday to Friday.",
+    contact_crisis_title:"Crisis lines",contact_crisis_text:"If you are going through an emotional crisis, here are the helplines available in your country:",
+  },
+  de:{
+    tab_mentions:"Impressum",tab_cgv:"AGB",tab_digital:"Kaufpolitik digitale Produkte",tab_privacy:"Datenschutz",tab_contact:"Kontakt",
+    last_update:"Letzte Aktualisierung: Mai 2025",
+    mentions_h1:"Impressum",
+    mentions_editor_title:"Herausgeber der Website",mentions_host_title:"Hosting",mentions_ip_title:"Geistiges Eigentum",
+    mentions_ip_text:"Alle Inhalte auf mind-protocol.com (Texte, Programme, Übungen, Grafiken, Logos) sind urheberrechtlich geschützt und gehören ausschließlich MindProtocol. Jede nicht autorisierte Reproduktion ist streng verboten.",
+    mentions_disclaimer_title:"Haftungsausschluss",
+    mentions_disclaimer_text:"MindProtocol-Programme sind Bildungsinhalte auf Basis neurowissenschaftlicher Forschung. Sie stellen keine medizinische oder therapeutische Beratung dar und ersetzen keine professionelle Gesundheitsversorgung.",
+    mentions_law_title:"Anwendbares Recht",mentions_law_text:"Diese Bedingungen unterliegen dem Recht des Wohnsitzlandes des Nutzers, einschließlich der EU-Richtlinie 2011/83/EU für EU-Bewohner.",
+    cgv_h1:"Allgemeine Geschäftsbedingungen (AGB)",cgv_seller_title:"Verkäufer",cgv_seller_content:"<strong>Firmenname:</strong> GB Products &amp; Services<br><strong>Handelsname:</strong> MindProtocol<br><strong>Land:</strong> Vereinigte Staaten<br><strong>E-Mail:</strong> <a href=\"mailto:contact@mind-protocol.com\">contact@mind-protocol.com</a>",cgv_products_title:"Angebotene Produkte",
+    cgv_products_text:"MindProtocol vertreibt herunterladbare digitale PDF-Programme im Bereich der angewandten Neurowissenschaften. Jedes Programm ist in 4 Sprachen erhältlich: Französisch, Englisch, Deutsch und Spanisch.",
+    cgv_prices_title:"Preise",cgv_prices_text:"Die Preise werden in Euro (€) inkl. aller Steuern angegeben. Maßgeblich sind die zum Zeitpunkt der Bestellung gültigen Preise.",
+    cgv_payment_title:"Zahlung",cgv_payment_text:"Zahlungen werden sicher von Stripe Inc. verarbeitet. Wir akzeptieren Visa, Mastercard und American Express. Keine Bankdaten werden auf unseren Servern gespeichert.",
+    cgv_delivery_title:"Lieferung",cgv_delivery_text:"Nach Zahlungsvalidierung wird der Käufer zu einer sofortigen Download-Seite weitergeleitet. Der Zugang ist dauerhaft und zeitlich unbegrenzt.",
+    cgv_withdrawal_title:"Widerrufsrecht",
+    cgv_withdrawal_text:"Gemäß Artikel 16(m) der EU-Richtlinie 2011/83/EU gilt das 14-tägige Widerrufsrecht nicht für digitale Inhalte, die sofort heruntergeladen werden. Durch das Herunterladen verzichtet der Käufer ausdrücklich auf sein Widerrufsrecht. Der Kauf ist endgültig.",
+    
+    digital_h1:"Kaufpolitik für digitale Produkte",
+    digital_intro:"Zusammenfassung: MindProtocol-Produkte sind sofort herunterladbare Digitaldateien. Gemäß europäischem Recht ist der Kauf nach dem Herunterladen endgültig.",
+    digital_what_title:"Was Sie kaufen",digital_what_text:"Jedes Programm ist ein 100 bis 180-seitiges PDF mit geführten Übungen und einem 90-Tage-Aktionsplan. In 4 Sprachen im Kaufpreis enthalten.",
+    digital_access_title:"Zugang und Download",
+    digital_access_1:"Sofortzugang nach Zahlungsvalidierung",digital_access_2:"4 Sprachen verfügbar (FR, EN, DE, ES)",digital_access_3:"Keine Download-Beschränkung",digital_access_4:"Kompatibel mit allen Geräten",digital_access_5:"Kein Abonnement, keine wiederkehrenden Gebühren",
+    digital_norefund_title:"Keine-Rückerstattungs-Politik",
+    digital_norefund_text:"Gemäß EU-Richtlinie 2011/83/EU (Artikel 16m) sind sofort herunterladbare digitale Inhalte vom Widerrufsrecht ausgeschlossen. Durch Klicken auf den Download-Button bestätigen Sie Ihr Einverständnis und verzichten ausdrücklich auf dieses Recht. Nach dem Zugriff auf den digitalen Inhalt kann keine Rückerstattung gewährt werden.",
+    digital_problem_title:"Technisches Problem",digital_problem_text:"Bei einem technischen Problem beim Herunterladen kontaktieren Sie uns sofort unter contact@mind-protocol.com. Wir lösen alle technischen Probleme innerhalb von 24 Geschäftsstunden.",
+    privacy_h1:"Datenschutzerklärung",privacy_collect_title:"Erhobene Daten",
+    privacy_collect_text:"Bei einem Kauf erheben wir Ihre E-Mail-Adresse und Ihr Wohnsitzland, die ausschließlich von Stripe Inc. DSGVO-konform verarbeitet werden.",
+    privacy_collect_text2:"Keine Drittanbieter-Tracking-Cookies. Keine Daten werden für kommerzielle Zwecke verkauft oder weitergegeben.",
+    privacy_use_title:"Verwendung der Daten",privacy_use_1:"Bearbeitung Ihrer Bestellung",privacy_use_2:"Betrugsprävention (über Stripe)",privacy_use_3:"Einhaltung gesetzlicher Pflichten",
+    privacy_stripe_title:"Stripe und Zahlungssicherheit",privacy_stripe_text:"Zahlungen werden von Stripe Inc. verarbeitet, PCI DSS Level 1 zertifiziert. MindProtocol speichert keine Bankdaten.",
+    privacy_rights_title:"Ihre Rechte (DSGVO)",privacy_rights_text:"Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Datenübertragbarkeit. Geltend machen unter: contact@mind-protocol.com",
+    privacy_retention_title:"Datenspeicherung",privacy_retention_text:"Transaktionsdaten werden 10 Jahre aufbewahrt (gesetzliche Pflichten). Funktionale Daten werden gelöscht, sobald sie nicht mehr benötigt werden.",
+    privacy_cookies_title:"Cookies",privacy_cookies_text:"Wir verwenden nur ein funktionelles Sprachpräferenz-Cookie (localStorage). Keine Werbe- oder Tracking-Cookies.",
+    contact_h1:"Kontakt",contact_intro:"Für Fragen, technische Probleme oder DSGVO-Anfragen antworten wir innerhalb von 24 Geschäftsstunden.",
+    contact_support_title:"Kundensupport",contact_support_text:"Für Download-Probleme, Fragen zu Ihrer Bestellung oder Zugang zu Ihren Programmen.",
+    
+    contact_response_title:"Antwortzeit",contact_response_text:"Wir antworten auf alle Anfragen innerhalb von 24 Geschäftsstunden, Montag bis Freitag.",
+    contact_crisis_title:"Krisenhotlines",contact_crisis_text:"Wenn Sie eine emotionale Krise durchmachen, finden Sie hier die Hilfsnummern in Ihrem Land:",
+  },
+  es:{
+    tab_mentions:"Aviso legal",tab_cgv:"Términos y condiciones",tab_digital:"Política de compra digital",tab_privacy:"Política de privacidad",tab_contact:"Contacto",
+    last_update:"Última actualización: mayo 2025",
+    mentions_h1:"Aviso Legal",
+    mentions_editor_title:"Editor del sitio",mentions_host_title:"Alojamiento",mentions_ip_title:"Propiedad intelectual",
+    mentions_ip_text:"Todo el contenido de mind-protocol.com (textos, programas, ejercicios, gráficos, logos) está protegido por derechos de autor y pertenece exclusivamente a MindProtocol. Cualquier reproducción no autorizada está estrictamente prohibida.",
+    mentions_disclaimer_title:"Limitación de responsabilidad",
+    mentions_disclaimer_text:"Los programas MindProtocol son contenidos educativos basados en investigaciones en neurociencias. No constituyen asesoramiento médico o terapéutico y no reemplazan la atención profesional de salud.",
+    mentions_law_title:"Ley aplicable",mentions_law_text:"Estas condiciones se rigen por la ley aplicable en el país de residencia del usuario, incluida la Directiva UE 2011/83/UE para residentes de la UE.",
+    cgv_h1:"Términos y Condiciones de Venta",cgv_seller_title:"Vendedor",cgv_seller_content:"<strong>Razón social:</strong> GB Products &amp; Services<br><strong>Nombre comercial:</strong> MindProtocol<br><strong>País:</strong> Estados Unidos<br><strong>Email:</strong> <a href=\"mailto:contact@mind-protocol.com\">contact@mind-protocol.com</a>",cgv_products_title:"Productos ofrecidos",
+    cgv_products_text:"MindProtocol comercializa programas digitales PDF descargables en neurociencias aplicadas. Cada programa está disponible en 4 idiomas: francés, inglés, alemán y español.",
+    cgv_prices_title:"Precios",cgv_prices_text:"Los precios se indican en euros (€), todos los impuestos incluidos. Los precios aplicables son los vigentes en el momento del pedido.",
+    cgv_payment_title:"Pago",cgv_payment_text:"Los pagos son procesados de forma segura por Stripe Inc. Aceptamos Visa, Mastercard y American Express. Ningún dato bancario se almacena en nuestros servidores.",
+    cgv_delivery_title:"Entrega",cgv_delivery_text:"Tras la validación del pago, el comprador es redirigido a una página de descarga inmediata. El acceso es permanente y sin limitación de tiempo.",
+    cgv_withdrawal_title:"Derecho de desistimiento",
+    cgv_withdrawal_text:"De acuerdo con el artículo 16(m) de la Directiva UE 2011/83/UE, el derecho de desistimiento de 14 días no se aplica a los contenidos digitales descargados inmediatamente. Al descargar, el comprador renuncia expresamente a su derecho de desistimiento. La compra es definitiva.",
+    
+    digital_h1:"Política de Compra Digital",
+    digital_intro:"Resumen: Los productos MindProtocol son archivos digitales descargables inmediatamente. De acuerdo con la legislación europea, la compra es definitiva tras la descarga.",
+    digital_what_title:"Qué estás comprando",digital_what_text:"Cada programa es un PDF de 100 a 180 páginas con ejercicios guiados y un plan de acción de 90 días. Disponible en 4 idiomas incluidos en el precio.",
+    digital_access_title:"Acceso y descarga",
+    digital_access_1:"Acceso inmediato tras validación del pago",digital_access_2:"4 idiomas disponibles (FR, EN, DE, ES)",digital_access_3:"Sin límite de descargas",digital_access_4:"Compatible con todos los dispositivos",digital_access_5:"Sin suscripción, sin cargos recurrentes",
+    digital_norefund_title:"Política de no reembolso",
+    digital_norefund_text:"De acuerdo con la Directiva UE 2011/83/UE (artículo 16m), los contenidos digitales descargables inmediatamente están excluidos del derecho de desistimiento. Al hacer clic en el botón de descarga, confirma su acuerdo y renuncia expresamente a este derecho. No se podrá conceder ningún reembolso tras el acceso al contenido digital.",
+    digital_problem_title:"Problema técnico",digital_problem_text:"Si encuentra un problema técnico durante la descarga, contáctenos inmediatamente en contact@mind-protocol.com. Resolvemos todos los problemas técnicos en 24 horas hábiles.",
+    privacy_h1:"Política de Privacidad",privacy_collect_title:"Datos recopilados",
+    privacy_collect_text:"Al realizar una compra, recopilamos su email y país de residencia, procesados exclusivamente por Stripe Inc. en cumplimiento del RGPD.",
+    privacy_collect_text2:"Sin cookies de seguimiento de terceros. Ningún dato se vende ni comparte con fines comerciales.",
+    privacy_use_title:"Uso de los datos",privacy_use_1:"Procesamiento de su pedido",privacy_use_2:"Prevención del fraude (vía Stripe)",privacy_use_3:"Cumplimiento de obligaciones legales",
+    privacy_stripe_title:"Stripe y seguridad de pagos",privacy_stripe_text:"Pagos procesados por Stripe Inc., certificado PCI DSS nivel 1. MindProtocol no almacena datos bancarios.",
+    privacy_rights_title:"Sus derechos (RGPD)",privacy_rights_text:"Tiene derechos de acceso, rectificación, supresión y portabilidad. Ejérzcalos en: contact@mind-protocol.com",
+    privacy_retention_title:"Conservación de datos",privacy_retention_text:"Datos de transacción conservados 10 años (obligaciones legales). Datos funcionales eliminados en cuanto sea posible.",
+    privacy_cookies_title:"Cookies",privacy_cookies_text:"Solo usamos una cookie funcional de preferencia de idioma (localStorage). Sin cookies publicitarias ni de seguimiento.",
+    contact_h1:"Contacto",contact_intro:"Para cualquier pregunta, problema técnico o solicitud RGPD, respondemos en 24 horas hábiles.",
+    contact_support_title:"Soporte al cliente",contact_support_text:"Para cualquier problema de descarga, pregunta sobre su pedido o acceso a sus programas.",
+    
+    contact_response_title:"Tiempo de respuesta",contact_response_text:"Respondemos a todas las solicitudes en 24 horas hábiles, de lunes a viernes.",
+    contact_crisis_title:"Líneas de crisis",contact_crisis_text:"Si atraviesas una crisis emocional, aquí están los números de ayuda disponibles en tu país:",
+  }
+};
+
+function showTab(name){
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  var sec=document.getElementById('sec-'+name);
+  if(sec)sec.classList.add('active');
+  event&&event.target&&event.target.classList.add('active');
+}
+
+function setLang(lang){
+  localStorage.setItem('mp_lang',lang);
+  window.MP_LANG=lang;
+  applyLang(lang);
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===lang.toUpperCase()));
+}
+
+function applyLang(lang){
+  var t=LEGAL_I18N[lang]||LEGAL_I18N['fr'];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    var key=el.getAttribute('data-i18n');
+    if(t[key]!==undefined)el.innerHTML=t[key];
+  });
+  document.documentElement.lang=lang;
+  // Mettre à jour le titre de la page
+  var titles={fr:'Légal · MindProtocol',en:'Legal, MindProtocol',de:'Rechtliches · MindProtocol',es:'Legal, MindProtocol'};
+  document.title=titles[lang]||titles['fr'];
+}
+
+// Init
+document.addEventListener('DOMContentLoaded',function(){
+  var lang=window.MP_LANG||'fr';
+  applyLang(lang);
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===lang.toUpperCase()));
+  // Gérer le hash URL pour ouvrir le bon onglet
+  var hash=window.location.hash.replace('#','');
+  if(hash&&document.getElementById('sec-'+hash))showTab(hash);
+});
+</script>
+</body>
+</html>

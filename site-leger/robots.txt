@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /pages/merci-
+Sitemap: https://mind-protocol.com/sitemap.xml

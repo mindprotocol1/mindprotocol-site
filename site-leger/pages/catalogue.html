@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindProtocol · Neurosciences & Mindset</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0D0D0D;
+  --cream: #FAF8F5;
+  --warm: #F5F0E8;
+  --border: #E0D8CC;
+  --muted: #888;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700; letter-spacing: 0.05em;
+}
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  text-decoration: none; color: var(--ink);
+  font-size: 0.85rem; font-weight: 500; letter-spacing: 0.03em;
+  opacity: 0.7; transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 1; }
+
+/* HERO GLOBAL */
+.hero-global {
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  background: var(--ink);
+  color: var(--cream);
+}
+.hero-global .overline {
+  font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+  opacity: 0.5; margin-bottom: 1.5rem;
+  font-family: 'DM Mono', monospace;
+}
+.hero-global h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900; line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+.hero-global p {
+  max-width: 600px; margin: 0 auto;
+  font-size: 1.1rem; opacity: 0.7; font-weight: 300;
+}
+
+/* GRID DES 4 EBOOKS */
+.catalog {
+  padding: 5rem 2rem;
+  max-width: 1200px; margin: 0 auto;
+}
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+  align-items: stretch;
+}
+.catalog-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  text-align: center;
+}
+.catalog-sub {
+  text-align: center; color: var(--muted);
+  margin-top: 0.5rem; font-size: 0.95rem;
+}
+.book-card {
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 1.75rem;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: white;
+}
+.book-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+.book-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  opacity: 0.4; margin-bottom: 0.85rem;
+}
+.book-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700; line-height: 1.2;
+  margin-bottom: 0.6rem;
+  min-height: 2.8rem;
+}
+.book-tagline {
+  font-size: 0.83rem; color: var(--muted);
+  margin-bottom: auto;
+  padding-bottom: 1.25rem;
+  flex: 1;
+  min-height: 2.5rem;
+}
+.book-price {
+  font-weight: 700; font-size: 1.35rem;
+  display: flex; align-items: baseline; gap: 0.4rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.book-price span { font-size: 0.75rem; font-weight: 400; color: var(--muted); }
+@media(max-width:900px){.catalog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.catalog-grid{grid-template-columns:1fr}}
+
+/* SEPARATOR */
+.sep { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+/* ═══ LANDING PAGE INDIVIDUELLE ═══ */
+.landing { scroll-margin-top: 60px; }
+
+/* HERO EBOOK */
+.ebook-hero {
+  padding: 6rem 2rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .ebook-hero { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+}
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 0; }
+.nav-burger span { display: block; width: 22px; height: 1.5px; background: #0D1B2A; }
+.mobile-menu-cat { position: fixed; inset: 0; z-index: 999; background: #F7F4EF; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; pointer-events: none; transition: opacity .3s; }
+.mobile-menu-cat.open { opacity: 1; pointer-events: all; }
+.mobile-menu-cat a { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: #0D1B2A; text-decoration: none; }
+.mobile-menu-cat .close-btn { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: #0D1B2A; }
+.ebook-cover {
+  aspect-ratio: 3/4;
+  border-radius: 2px;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.ebook-cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.55) 40%, rgba(0,0,0,.15) 100%);
+}
+.cover-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: auto;
+  padding-top: 0;
+  position: relative; z-index: 1;
+}
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900; color: white;
+  line-height: 1.05;
+  position: relative; z-index: 1;
+}
+.cover-sub {
+  font-size: 0.85rem; color: rgba(255,255,255,0.7);
+  margin-top: 0.5rem; font-weight: 300;
+  position: relative; z-index: 1;
+}
+.ebook-intro .overline {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  opacity: 0.4; margin-bottom: 1rem;
+}
+.ebook-intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700; line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+.ebook-intro p {
+  color: #444; font-size: 1rem; line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.ebook-price-block {
+  display: flex; align-items: center; gap: 1.5rem;
+  margin-top: 2rem; padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.price-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 900;
+}
+.price-sub { font-size: 0.8rem; color: var(--muted); }
+.btn-cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  font-size: 0.9rem; font-weight: 600;
+  letter-spacing: 0.03em;
+  border: none; border-radius: 2px;
+  cursor: pointer; text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.btn-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  padding: 0.9rem 1.5rem;
+  font-size: 0.85rem;
+  border-radius: 2px;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-secondary:hover { background: var(--warm); }
+
+/* SECTION CONTENU */
+.section {
+  padding: 4rem 2rem;
+  max-width: 1100px; margin: 0 auto;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; font-weight: 700;
+  margin-bottom: 2rem;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.feature-card {
+  background: var(--warm);
+  padding: 1.5rem;
+  border-radius: 2px;
+}
+.feature-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.feature-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; }
+.feature-text { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+/* SOMMAIRE ACCORDEON */
+.toc {
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.toc-item {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.25rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.toc-item:last-child { border-bottom: none; }
+.toc-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; color: var(--muted);
+  min-width: 24px; padding-top: 2px;
+}
+.toc-content {}
+.toc-part { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.2rem; }
+.toc-detail { font-size: 0.8rem; color: var(--muted); }
+
+/* TESTIMONIALS */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.testimonial {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 1.5rem;
+}
+.testimonial-quote {
+  font-size: 0.95rem; line-height: 1.7;
+  margin-bottom: 1rem; color: #333;
+}
+.testimonial-author {
+  font-size: 0.8rem; color: var(--muted);
+  font-weight: 500;
+}
+
+/* FAQ */
+.faq { display: flex; flex-direction: column; gap: 0; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0;
+}
+.faq-q {
+  font-weight: 600; font-size: 0.95rem;
+  cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; user-select: none;
+}
+.faq-q::after {
+  content: '+'; font-size: 1.4rem; font-weight: 300;
+  color: #B8962E; flex-shrink: 0;
+  transition: transform 0.25s;
+}
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  font-size: 0.88rem; color: #555; line-height: 1.75;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s;
+  padding-top: 0;
+}
+.faq-item.open .faq-a {
+  max-height: 400px;
+  padding-top: 0.85rem;
+}
+
+/* CTA BOTTOM */
+.cta-bottom {
+  background: var(--ink); color: var(--cream);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.cta-bottom h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900; margin-bottom: 1rem;
+}
+.cta-bottom p { opacity: 0.6; margin-bottom: 2.5rem; font-size: 1rem; }
+.cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* GARANTIE */
+.garantie {
+  display: flex; align-items: center; gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  font-size: 0.82rem; opacity: 0.5;
+}
+
+/* STATS */
+.stats {
+  display: flex; gap: 3rem; flex-wrap: wrap;
+  margin: 2rem 0;
+}
+.stat-item {}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 900;
+  line-height: 1;
+}
+.stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+
+/* DIVIDER avec texte */
+.divider-text {
+  display: flex; align-items: center; gap: 1rem;
+  margin: 1rem 0;
+  color: var(--muted); font-size: 0.78rem;
+  font-family: 'DM Mono', monospace; letter-spacing: 0.1em;
+}
+.divider-text::before, .divider-text::after {
+  content: ''; flex: 1;
+  height: 1px; background: var(--border);
+}
+
+/* BADGE */
+.badge {
+  display: inline-flex; align-items: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 1px;
+  margin-bottom: 1.5rem;
+}
+
+/* PAGE SEPARATOR */
+.page-sep {
+  height: 6px;
+  width: 100%;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink); color: rgba(255,255,255,0.4);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+/* ═══ COULEURS PAR EBOOK ═══ */
+/* Ebook 1 : Navy/Red */
+.e1-cover { background: #0D1B2A url('../img/ebook1.jpg') center/cover no-repeat; }
+.e1-accent { color: #C0392B; }
+.e1-bg { background: #C0392B; }
+.e1-sep { background: linear-gradient(90deg, #0D1B2A, #C0392B); }
+.e1-badge { background: rgba(192,57,43,0.1); color: #C0392B; border: 1px solid rgba(192,57,43,0.3); }
+.e1-btn { background: #C0392B; color: white; }
+.e1-feature { border-left: 3px solid #C0392B; }
+
+/* Ebook 2 : Navy/Gold */
+.e2-cover { background: #0D1B2A url('../img/ebook2.jpg') center/cover no-repeat; }
+.e2-accent { color: #8B6914; }
+.e2-bg { background: #C9A84C; }
+.e2-sep { background: linear-gradient(90deg, #0D1B2A, #C9A84C); }
+.e2-badge { background: rgba(201,168,76,0.1); color: #8B6914; border: 1px solid rgba(201,168,76,0.4); }
+.e2-btn { background: #0D1B2A; color: white; }
+.e2-feature { border-left: 3px solid #C9A84C; }
+
+/* Ebook 3 : Navy/Cyan */
+.e3-cover { background: #1A1A2E url('../img/ebook3.jpg') center/cover no-repeat; }
+.e3-accent { color: #1B6CA8; }
+.e3-bg { background: #1B6CA8; }
+.e3-sep { background: linear-gradient(90deg, #0F3460, #1B6CA8); }
+.e3-badge { background: rgba(27,108,168,0.1); color: #1B6CA8; border: 1px solid rgba(27,108,168,0.3); }
+.e3-btn { background: #0F3460; color: white; }
+.e3-feature { border-left: 3px solid #1B6CA8; }
+
+/* Ebook 4 : Navy/Purple */
+.e4-cover { background: #1A1A2E url('../img/ebook4.jpg') center/cover no-repeat; }
+.e4-accent { color: #7D3C98; }
+.e4-bg { background: #7D3C98; }
+.e4-sep { background: linear-gradient(90deg, #1A1A2E, #7D3C98); }
+.e4-badge { background: rgba(125,60,152,0.1); color: #7D3C98; border: 1px solid rgba(125,60,152,0.3); }
+.e4-btn { background: #4A235A; color: white; }
+.e4-feature { border-left: 3px solid #7D3C98; }
+
+/* Anim */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate { animation: fadeUp 0.6s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+/* ── BANDEAU LANGUES ──────────────────────────────── */
+.lang-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.lang-strip-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #888;
+  margin-right: 0.3rem;
+}
+.lang-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.65rem;
+  border: 1px solid #D8D0C4;
+  color: #555;
+  background: #FAFAF8;
+  border-radius: 1px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.lang-tag:hover { border-color: #B8962E; color: #B8962E; }
+.lang-tag .flag { font-size: 0.95rem; }
+/* ── FIN BANDEAU LANGUES ──────────────────────────── */
+
+/* ── AVIS MULTILINGUES ──────────────────────────────── */
+.testimonial-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 0.6rem;
+}
+.testimonial-stars {
+  color: #B8962E;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+/* ── FIN AVIS MULTILINGUES ──────────────────────────── */
+/* ── LANG SWITCHER ──────────────────────────────── */
+.lang-switcher{display:flex;gap:.35rem;align-items:center;margin-left:1.5rem}
+.lang-btn{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;padding:.28rem .5rem;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .2s;background:transparent}
+.lang-btn:hover,.lang-btn.active{border-color:#B8962E;color:#B8962E;background:rgba(184,150,46,.06)}
+/* ── FIN LANG SWITCHER ──────────────────────────── */
+</style>
+</head>
+<body>
+
+<script>
+(function(){
+  var lang=localStorage.getItem('mp_lang')||'fr';
+  var ok=['fr','en','de','es'];
+  if(ok.indexOf(lang)===-1)lang='fr';
+  window.MP_LANG=lang;
+})();
+</script>
+
+<!-- NAV -->
+<div class="mobile-menu-cat" id="mobileCat">
+  <button class="close-btn" onclick="document.getElementById('mobileCat').classList.remove('open')">✕</button>
+  <a href="#ebook1" onclick="document.getElementById('mobileCat').classList.remove('open')" data-i18n="nav_e1">Reprogramme</a>
+  <a href="#ebook2" onclick="document.getElementById('mobileCat').classList.remove('open')" data-i18n="nav_e2">Dirigeant Équilibré</a>
+  <a href="#ebook3" onclick="document.getElementById('mobileCat').classList.remove('open')" data-i18n="nav_e3">Apprendre</a>
+  <a href="#ebook4" onclick="document.getElementById('mobileCat').classList.remove('open')" data-i18n="nav_e4">Brouillard</a>
+  <div class="lang-switcher" style="margin-top:1rem;">
+    <button class="lang-btn" onclick="setLang('fr');document.getElementById('mobileCat').classList.remove('open')">FR</button>
+    <button class="lang-btn" onclick="setLang('en');document.getElementById('mobileCat').classList.remove('open')">EN</button>
+    <button class="lang-btn" onclick="setLang('de');document.getElementById('mobileCat').classList.remove('open')">DE</button>
+    <button class="lang-btn" onclick="setLang('es');document.getElementById('mobileCat').classList.remove('open')">ES</button>
+  </div>
+</div>
+<nav>
+  <div class="logo"><a href="/" style="text-decoration:none;color:inherit">Mind<span style="color:#B8962E">Protocol</span></a></div>
+  <div class="nav-links">
+    <a href="#ebook1" data-i18n="nav_e1">Reprogramme</a>
+    <a href="#ebook2" data-i18n="nav_e2">Dirigeant Équilibré</a>
+    <a href="#ebook3" data-i18n="nav_e3">Apprendre</a>
+    <a href="#ebook4" data-i18n="nav_e4">Brouillard</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+  <button class="nav-burger" onclick="document.getElementById('mobileCat').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO GLOBAL -->
+<section class="hero-global">
+  <p class="overline" data-i18n="hero_overline">MindProtocol.com · Neurosciences & Mindset</p>
+  <h1 data-i18n="hero_h1">Reprogramme ton cerveau.<br>Transforme ta vie.</h1>
+  <p data-i18n="hero_sub">4 programmes scientifiques. 90 jours chacun. Des résultats mesurables, pas des promesses.</p>
+</section>
+
+<!-- CATALOGUE -->
+<section class="catalog">
+  <h2 class="catalog-title" data-i18n="cat_title">Les 4 programmes</h2>
+  <p class="catalog-sub" data-i18n="cat_sub">Fondés sur les neurosciences. Conçus pour la vie réelle.</p>
+  <div class="catalog-grid">
+    <a href="#ebook1" class="book-card">
+      <div class="book-num" data-i18n="prog_01">Programme 01</div>
+      <div class="book-title" data-i18n="e1_title">Reprogramme ton Cerveau</div>
+      <div class="book-tagline" data-i18n="e1_tag">Maîtriser son esprit dans un monde chaotique</div>
+      <div class="book-price">39,99€ <span data-i18n="pdf_immediate">PDF immédiat</span></div>
+    </a>
+    <a href="#ebook2" class="book-card">
+      <div class="book-num" data-i18n="prog_02">Programme 02</div>
+      <div class="book-title" data-i18n="e2_title">Le Dirigeant Équilibré</div>
+      <div class="book-tagline" data-i18n="e2_tag">Performance durable sans burnout</div>
+      <div class="book-price">64,99€ <span data-i18n="pdf_immediate">PDF immédiat</span></div>
+    </a>
+    <a href="#ebook3" class="book-card">
+      <div class="book-num" data-i18n="prog_03">Programme 03</div>
+      <div class="book-title" data-i18n="e3_title">Apprends à Apprendre</div>
+      <div class="book-tagline" data-i18n="e3_tag">Les méthodes que l'école ne t'a jamais apprises</div>
+      <div class="book-price">34,99€ <span data-i18n="pdf_immediate">PDF immédiat</span></div>
+    </a>
+    <a href="#ebook4" class="book-card">
+      <div class="book-num" data-i18n="prog_04">Programme 04</div>
+      <div class="book-title" data-i18n="e4_title">Sortir du Brouillard</div>
+      <div class="book-tagline" data-i18n="e4_tag">Reconstruction après l'épuisement émotionnel</div>
+      <div class="book-price">49,99€ <span data-i18n="pdf_immediate">PDF immédiat</span></div>
+    </a>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- EBOOK 1 : REPROGRAMME TON CERVEAU      -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-sep e1-sep" id="ebook1"></div>
+
+<section class="landing">
+  <div class="ebook-hero">
+    <div class="ebook-cover e1-cover animate">
+      <div class="cover-num">Programme 01 · 39,99€</div>
+      <div style="flex:1"></div>
+      <div class="cover-title" data-i18n="e1_cover_title">Reprogramme<br>ton Cerveau</div>
+      <div class="cover-sub" data-i18n="e1_cover_sub">Maîtriser son esprit dans un monde chaotique</div>
+    </div>
+    <div class="ebook-intro animate delay-1">
+      <div class="badge e1-badge" data-i18n="e1_badge">Neurosciences & Mindset</div>
+      <h2 data-i18n="e1_h2">Et si tu utilisais enfin ton cerveau à son vrai potentiel ?</h2>
+      <p data-i18n="e1_p1">Tu travailles dur. Tu lis des livres. Tu essaies de changer. Mais quelque chose bloque. Toujours. La raison ? Personne ne t'a jamais expliqué comment ton cerveau fonctionne vraiment, et comment le reprogrammer délibérément.</p>
+      <p data-i18n="e1_p2">Ce programme de 90 jours te donne les outils neurologiques concrets pour transformer tes habitudes, gérer ton stress à la source, et dépasser les croyances qui te retiennent, fondés sur 30 ans de recherches en neurosciences.</p>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-num e1-accent">35+</div>
+          <div class="stat-label" data-i18n="e1_stat1">Exercices pratiques</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num e1-accent">5</div>
+          <div class="stat-label" data-i18n="e1_stat2">Parties complètes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num e1-accent">90</div>
+          <div class="stat-label">Jours de programme</div>
+        </div>
+      </div>
+      <div class="lang-strip">
+        <span class="lang-strip-label" data-i18n="available_in">Disponible en</span>
+        <span class="lang-tag"><span class="flag">🇫🇷</span> Français</span>
+        <span class="lang-tag"><span class="flag">🇬🇧</span> English</span>
+        <span class="lang-tag"><span class="flag">🇩🇪</span> Deutsch</span>
+        <span class="lang-tag"><span class="flag">🇪🇸</span> Español</span>
+      </div>
+      <div class="ebook-price-block">
+        <div>
+          <div class="price-main">39,99€</div>
+          <div class="price-sub" data-i18n="price_sub">Accès immédiat · PDF · 4 langues incluses</div>
+        </div>
+        <a href="https://buy.stripe.com/8x25kDgEp8PG0IM6S2eZ205" class="btn-cta e1-btn" target="_blank" data-i18n="btn_buy">Télécharger maintenant →</a>
+        <a href="#faq1" class="btn-secondary" data-i18n="faq_link">Questions fréquentes</a>
+      </div>
+      <div class="garantie" data-i18n="garantie">🔒 Paiement sécurisé · Produit numérique · achat définitif</div>
+    </div>
+  </div>
+
+  <!-- POUR QUI -->
+  <div class="section" style="background: var(--warm);">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="divider-text" data-i18n="pour_qui">Pour qui</div>
+      <div class="features-grid" style="margin-top:1.5rem;">
+        <div class="feature-card e1-feature">
+          <div class="feature-icon">😮‍💨</div>
+          <div class="feature-title" data-i18n="e1_f1_title">Tu te sens épuisé sans raison</div>
+          <div class="feature-text" data-i18n="e1_f1_text">Malgré le sommeil, l'énergie ne revient pas. Tu travailles mais tu n'avances plus. Ce programme t'explique pourquoi, et comment inverser la spirale biologiquement.</div>
+        </div>
+        <div class="feature-card e1-feature">
+          <div class="feature-icon">🔁</div>
+          <div class="feature-title" data-i18n="e1_f2_title">Tu répètes les mêmes patterns</div>
+          <div class="feature-text" data-i18n="e1_f2_text">Tu recommences toujours les mêmes erreurs, les mêmes relations difficiles. Ce n'est pas un manque de volonté, ce sont des circuits neuronaux à reprogrammer.</div>
+        </div>
+        <div class="feature-card e1-feature">
+          <div class="feature-icon">🧠</div>
+          <div class="feature-title" data-i18n="e1_f3_title">Tu veux apprendre comment fonctionne ton cerveau</div>
+          <div class="feature-text" data-i18n="e1_f3_text">Neuroplasticité, cortisol, hippocampe, croyances limitantes, des concepts expliqués simplement, avec des applications quotidiennes concrètes.</div>
+        </div>
+        <div class="feature-card e1-feature">
+          <div class="feature-icon">🎯</div>
+          <div class="feature-title" data-i18n="e1_f4_title">Tu veux un programme concret, pas du flou</div>
+          <div class="feature-text" data-i18n="e1_f4_text">Pas d'injonctions vagues. Chaque semaine a un objectif précis, des exercices détaillés et des exemples pour guider les débutants.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENU -->
+  <div class="section">
+    <h3 class="section-title" data-i18n="contents_title">Ce que contient le programme</h3>
+    <div class="toc">
+      <div class="toc-item">
+        <div class="toc-num">01</div>
+        <div class="toc-content">
+          <div class="toc-part" data-i18n="e1_toc1">Comprendre ton cerveau pour mieux le piloter</div>
+          <div class="toc-detail" data-i18n="e1_td1">Neuroplasticité · Formation des habitudes (règle des 66 jours) · Cortex préfrontal · Système limbique</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">02</div>
+        <div class="toc-content">
+          <div class="toc-part" data-i18n="e1_toc2">Apprendre à apprendre, les techniques des meilleurs</div>
+          <div class="toc-detail" data-i18n="e1_td2">Méthode Feynman · Répétition espacée · Flow · Mind mapping · Concentration profonde</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">03</div>
+        <div class="toc-content">
+          <div class="toc-part" data-i18n="e1_toc3">Absorber le stress de la vie moderne</div>
+          <div class="toc-detail" data-i18n="e1_td3">Cohérence cardiaque · Pleine conscience scientifique · Protocole anti-stress · Alimentation et cerveau</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">04</div>
+        <div class="toc-content">
+          <div class="toc-part" data-i18n="e1_toc4">Reprogrammer ses croyances limitantes</div>
+          <div class="toc-detail" data-i18n="e1_td4">TCC · Distorsions cognitives · Dialogue intérieur · Self-compassion (Kristin Neff)</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">05</div>
+        <div class="toc-content">
+          <div class="toc-part" data-i18n="e1_toc5">Plan d'action 90 jours ultra détaillé</div>
+          <div class="toc-detail" data-i18n="e1_td5">3 phases · 13 semaines · Actions quotidiennes · Tableau de suivi · Auto-évaluation finale</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMOIGNAGES -->
+  <div class="section" style="background: var(--warm);">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h3 class="section-title" data-i18n="temo_title">Ce qu'ils en disent</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-lang">🇫🇷 Français</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">« J'ai acheté des dizaines de livres de développement personnel. C'est le premier qui m'explique pourquoi je faisais toujours pareil, et qui me donne les outils pour vraiment changer. Pas de bullshit, de la science. »</div>
+          <div class="testimonial-author">Antoine L., 34 ans, consultant · Paris</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇬🇧 English</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"I've tried so many self-help books. This one is different, it explains the neuroscience behind why we're stuck, then gives you actual tools to change. The 90-day plan alone is worth the price."</div>
+          <div class="testimonial-author">James W., 38, product manager · London</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇩🇪 Deutsch</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">„Ich habe in 3 Wochen mehr über mein Gehirn gelernt als in 10 Jahren Selbstoptimierung. Die Übungen sind konkret, die Wissenschaft ist solide. Endlich ein Programm, das hält, was es verspricht."</div>
+          <div class="testimonial-author">Markus T., 41, Ingenieur · München</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇫🇷 Français</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">« Le plan 90 jours m'a structuré comme jamais. Semaine après semaine, j'ai senti quelque chose changer. Maintenant je dors mieux, je me concentre mieux et je gère mon stress autrement. »</div>
+          <div class="testimonial-author">Camille R., 28 ans, étudiante en master · Lyon</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇪🇸 Español</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">«Lo que más me sorprendió fue la parte sobre los sesgos cognitivos. De repente entendí por qué tomaba siempre las mismas malas decisiones. El programa es científico pero completamente accesible.»</div>
+          <div class="testimonial-author">Carlos M., 36 años, emprendedor · Madrid</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇬🇧 English</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"The section on limiting beliefs completely shifted my perspective. I thought it would be typical self-help, it's applied neuroscience explained simply. The dopamine audit alone changed my daily habits."</div>
+          <div class="testimonial-author">Sarah K., 29, UX designer · Dublin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section" id="faq1">
+    <h3 class="section-title" data-i18n="faq_title">Questions fréquentes</h3>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e1_faq1q">C'est pour quel niveau ? Je n'ai aucune formation en neurosciences.</div>
+        <div class="faq-a" data-i18n="e1_faq1a">Ce programme est conçu pour tout le monde, de 16 à 65 ans, sans aucun bagage scientifique. Les concepts neuroscientifiques sont expliqués avec des exemples du quotidien. Chaque exercice inclut un exemple concret pour guider les débutants complets.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e1_faq2q">Combien de temps par jour faut-il consacrer au programme ?</div>
+        <div class="faq-a" data-i18n="e1_faq2a">Entre 15 et 30 minutes par jour. Le programme est conçu pour s'intégrer dans une vie chargée, pas pour rajouter du stress. Les exercices des jours difficiles peuvent se faire en 10 minutes.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_what_q">Que reçois-je exactement à l'achat ?</div>
+        <div class="faq-a" data-i18n="faq_what_a">Un PDF immédiatement téléchargeable de plus de 150 pages. Aucun abonnement. Accès à vie. Lecture sur tous tes appareils.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_digital_q">Quelle est la politique d'achat pour un produit numérique ?</div>
+        <div class="faq-a" data-i18n="faq_digital_a">Conformément à la législation européenne sur les contenus numériques (directive 2011/83/UE), les produits numériques téléchargés immédiatement sont exemptés du droit de rétractation de 14 jours. L'achat est définitif dès le téléchargement.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-bottom">
+    <h2 data-i18n="e1_cta_h2">Prêt(e) à reprogrammer<br>ton cerveau ?</h2>
+    <p data-i18n="e1_cta_sub">90 jours. Des outils scientifiques. Un programme qui fonctionne dans la vraie vie.</p>
+    <div class="cta-group">
+      <a href="https://buy.stripe.com/8x25kDgEp8PG0IM6S2eZ205" class="btn-cta e1-btn" style="font-size:1rem; padding:1rem 2.5rem;" target="_blank" data-i18n="e1_btn_final">Télécharger pour 39,99€ →</a>
+    </div>
+    <div class="garantie" data-i18n="garantie_final">🔒 Paiement sécurisé · Achat définitif · Produit numérique · PDF immédiat</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- EBOOK 2 : LE CEO ÉQUILIBRÉ             -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-sep e2-sep" id="ebook2"></div>
+
+<section class="landing">
+  <div class="ebook-hero">
+    <div class="ebook-cover e2-cover animate">
+      <div class="cover-num">Programme 02 · 64,99€</div>
+      <div style="flex:1"></div>
+      <div class="cover-title" data-i18n="e2_cover_title">Le Dirigeant<br>Équilibré</div>
+      <div class="cover-sub">Performance durable · Décisions nettes · Zéro burnout</div>
+    </div>
+    <div class="ebook-intro animate delay-1">
+      <div class="badge e2-badge" data-i18n="e2_badge">Pour entrepreneurs, managers & dirigeants</div>
+      <h2 data-i18n="e2_h2">Un Dirigeant Équilibré n'est pas moins ambitieux.<br>Il est plus dangereux, parce qu'il dure.</h2>
+      <p data-i18n="e2_p1">Tu as construit quelque chose. Tu t'es levé tôt, couché tard. Et pourtant, tu te demandes si tu es aussi performant qu'avant. La réponse n'est pas dans ton agenda, elle est dans la biologie de ton cerveau sous stress chronique.</p>
+      <p data-i18n="e2_p2">Ce programme de 90 jours t'apprend à gérer ton énergie cognitive comme ton actif le plus précieux. 4 systèmes interdépendants. 13 semaines détaillées. Des protocoles que les meilleurs dirigeants du monde appliquent, enfin expliqués et adaptés à ta réalité.</p>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-num e2-accent">20</div>
+          <div class="stat-label">Exercices dirigeants</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num e2-accent">4</div>
+          <div class="stat-label">Systèmes à construire</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num e2-accent">13</div>
+          <div class="stat-label">Semaines de programme</div>
+        </div>
+      </div>
+      <div class="lang-strip">
+        <span class="lang-strip-label" data-i18n="available_in">Disponible en</span>
+        <span class="lang-tag"><span class="flag">🇫🇷</span> Français</span>
+        <span class="lang-tag"><span class="flag">🇬🇧</span> English</span>
+        <span class="lang-tag"><span class="flag">🇩🇪</span> Deutsch</span>
+        <span class="lang-tag"><span class="flag">🇪🇸</span> Español</span>
+      </div>
+      <div class="ebook-price-block">
+        <div>
+          <div class="price-main">64,99€</div>
+          <div class="price-sub" data-i18n="price_sub">Accès immédiat · PDF · 4 langues incluses</div>
+        </div>
+        <a href="https://buy.stripe.com/bJebJ10Frea0gHKgsCeZ208" class="btn-cta e2-btn" target="_blank" data-i18n="btn_buy">Télécharger maintenant →</a>
+      </div>
+      <div class="garantie" data-i18n="garantie">🔒 Paiement sécurisé · Produit numérique · achat définitif</div>
+    </div>
+  </div>
+
+  <!-- POUR QUI -->
+  <div class="section" style="background: var(--warm);">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="divider-text" data-i18n="pour_qui">Pour qui</div>
+      <div class="features-grid" style="margin-top:1.5rem;">
+        <div class="feature-card e2-feature">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title" data-i18n="e2_f1_title">Tu décides mal en fin de journée</div>
+          <div class="feature-text" data-i18n="e2_f1_text">La fatigue décisionnelle est réelle et mesurable. Ce programme t'apprend à gérer ton budget cognitif comme Bezos, Obama et Cook le font, avec des systèmes, pas de la volonté.</div>
+        </div>
+        <div class="feature-card e2-feature">
+          <div class="feature-icon">🔥</div>
+          <div class="feature-title" data-i18n="e2_f2_title">Tu sens le burnout approcher</div>
+          <div class="feature-text" data-i18n="e2_f2_text">Signaux précoces, protocoles d'urgence, tableau de bord mensuel. Ce programme t'apprend à détecter les signaux avant qu'il soit trop tard.</div>
+        </div>
+        <div class="feature-card e2-feature">
+          <div class="feature-icon">🎯</div>
+          <div class="feature-title" data-i18n="e2_f3_title">Tu veux performer durablement</div>
+          <div class="feature-text" data-i18n="e2_f3_text">Pas 18 mois brillants puis l'effondrement. Ce programme construit une architecture personnelle qui fonctionne encore dans 10 ans.</div>
+        </div>
+        <div class="feature-card e2-feature">
+          <div class="feature-icon">👥</div>
+          <div class="feature-title" data-i18n="e2_f4_title">Ton équipe ressent ton stress</div>
+          <div class="feature-text" data-i18n="e2_f4_text">Les neurones miroirs sont réels. Un dirigeant régulé crée un environnement de sécurité psychologique où la performance collective s'envole.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENU -->
+  <div class="section">
+    <h3 class="section-title" data-i18n="systems_title">Les 4 systèmes du programme</h3>
+    <div class="toc">
+      <div class="toc-item">
+        <div class="toc-num">S1</div>
+        <div class="toc-content">
+          <div class="toc-part" data-i18n="e2_toc1">Gestion de l'énergie cognitive</div>
+          <div class="toc-detail" data-i18n="e2_td1">Sommeil du dirigeant · Cohérence cardiaque · Alimentation pro-cerveau · Microrécupération NSDR</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">S2</div>
+        <div class="toc-content">
+          <div class="toc-part" data-i18n="e2_toc2">Organisation et décision</div>
+          <div class="toc-detail" data-i18n="e2_td2">GTD adapté dirigeants · Batching décisionnel · Matrice de délégation · Agenda du dirigeant</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">S3</div>
+        <div class="toc-content">
+          <div class="toc-part" data-i18n="e2_toc3">Leadership émotionnel</div>
+          <div class="toc-detail" data-i18n="e2_td3">Protocole STOP · Capital émotionnel de l'équipe · Sécurité psychologique · Communication sous pression</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">S4</div>
+        <div class="toc-content">
+          <div class="toc-part" data-i18n="e2_toc4">Vision, sens et durabilité</div>
+          <div class="toc-detail" data-i18n="e2_td4">Clarification du 'pourquoi' · Test de la semaine fantôme · Matrice énergie-sens · Lettre au successeur</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMOIGNAGES -->
+  <div class="section" style="background: var(--warm);">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h3 class="section-title" data-i18n="temo_title">Ce qu'ils en disent</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-lang">🇫🇷 Français</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">« J'ai lu des dizaines de livres de management. Celui-ci est différent parce qu'il commence par la biologie. Quand j'ai compris ce que le stress chronique faisait à mon cortex préfrontal, j'ai enfin compris pourquoi je prenais de mauvaises décisions à 17h. »</div>
+          <div class="testimonial-author">Stéphane M., 48 ans, PDG PME industrie · Lyon</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇬🇧 English</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"The decision fatigue section is worth the entire price. I now schedule all strategic decisions before noon. My team noticed the quality improvement within two weeks, before I even explained why."</div>
+          <div class="testimonial-author">David R., 52, CEO · Manchester</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇩🇪 Deutsch</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">„Die Delegationsmatrix hat mir in einem Monat 6 Stunden pro Woche zurückgegeben. Nicht durch Magie, durch eine präzise Methode, die ich nie wirklich angewendet hatte. Mein Team hat profitiert."</div>
+          <div class="testimonial-author">Stefan K., 46, Geschäftsführer · Hamburg</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇪🇸 Español</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">«El protocolo STOP me cambió como líder. Antes reaccionaba impulsivamente. Ahora tengo 6 segundos entre el estímulo y mi respuesta. Parece poco, es todo. Mi equipo lo notó antes de que yo les explicara nada.»</div>
+          <div class="testimonial-author">Isabel F., 43 años, directora general · Barcelona</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇫🇷 Français</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">« La partie sur la fatigue décisionnelle m'a transformé. Je prends mes décisions importantes le matin uniquement maintenant. Mes collaborateurs ont remarqué la différence avant que je leur explique pourquoi. »</div>
+          <div class="testimonial-author">Thomas R., 44 ans, directeur commercial · Paris</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇬🇧 English</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"The burnout detection dashboard saved me. I was at yellow alert without realising it. This program gave me the tools to course-correct before it became a crisis. Every leader should have this."</div>
+          <div class="testimonial-author">Emma T., 37, startup founder · Amsterdam</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section">
+    <h3 class="section-title" data-i18n="faq_title">Questions fréquentes</h3>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e2_faq1q">Je suis entrepreneur, pas PDG d'un grand groupe. C'est fait pour moi ?</div>
+        <div class="faq-a" data-i18n="e2_faq1a">Absolument. Ce programme s'adresse à toute personne qui dirige, une équipe de 3 personnes ou une entreprise de 300. Les systèmes sont universels et s'adaptent à toutes les tailles d'organisation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e2_faq2q">Je suis déjà au bord du burnout. Ce programme est-il adapté à mon état ?</div>
+        <div class="faq-a" data-i18n="e2_faq2a">Oui, il commence précisément par la stabilisation biologique. Le Mois 1 est entièrement dédié à restaurer les fondations (sommeil, énergie, organisation) avant tout travail plus profond. Si tu es en burnout sévère, ce programme peut accompagner un suivi médical.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e1_faq2q">Combien de temps par jour ?</div>
+        <div class="faq-a" data-i18n="e2_faq3a">20 à 30 minutes par jour. Les rituels s'intègrent dans les routines existantes (matin, déjeuner, soir). Aucune journée marathon requise.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-bottom">
+    <h2 data-i18n="e2_cta_h2">Le dirigeant durable<br>commence ici.</h2>
+    <p data-i18n="e2_cta_sub">Construire des systèmes qui fonctionnent encore dans 10 ans.</p>
+    <div class="cta-group">
+      <a href="https://buy.stripe.com/bJebJ10Frea0gHKgsCeZ208" class="btn-cta" style="background: #C9A84C; color: #0D1B2A; font-size:1rem; padding:1rem 2.5rem;" target="_blank" data-i18n="e2_btn_final">Télécharger pour 64,99€ →</a>
+    </div>
+    <div class="garantie" data-i18n="garantie_final">🔒 Paiement sécurisé · Achat définitif · Produit numérique · PDF immédiat</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- EBOOK 3 : APPRENDS À APPRENDRE        -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-sep e3-sep" id="ebook3"></div>
+
+<section class="landing">
+  <div class="ebook-hero">
+    <div class="ebook-cover e3-cover animate">
+      <div class="cover-num">Programme 03 · 34,99€</div>
+      <div style="flex:1"></div>
+      <div class="cover-title" data-i18n="e3_cover_title">Apprends à<br>Apprendre</div>
+      <div class="cover-sub" data-i18n="e3_cover_sub">Mémoire · Concentration · Méthodes · Résultats</div>
+    </div>
+    <div class="ebook-intro animate delay-1">
+      <div class="badge e3-badge" data-i18n="e3_badge">Neurosciences de l'apprentissage</div>
+      <h2 data-i18n="e3_h2">L'école t'a appris quoi apprendre.<br>Personne ne t'a appris comment.</h2>
+      <p data-i18n="e3_p1">Tu relis tes cours. Tu surligns. Tu bachottes. Et quelques semaines après l'examen, tout est parti. Ce n'est pas un manque d'intelligence, c'est une méthode inadaptée. La science de l'apprentissage a tout changé. Ce programme te la transmet.</p>
+      <p data-i18n="e3_p2">Répétition espacée, rappel actif, méthode Feynman, palais de la mémoire, des techniques validées par des centaines d'études, expliquées simplement, applicables dès ce soir.</p>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-num e3-accent">18</div>
+          <div class="stat-label" data-i18n="e1_stat1">Exercices pratiques</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num e3-accent">×10</div>
+          <div class="stat-label" data-i18n="e3_stat2">Rétention vs relecture</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num e3-accent">90j</div>
+          <div class="stat-label" data-i18n="e3_stat3">Programme complet</div>
+        </div>
+      </div>
+      <div class="lang-strip">
+        <span class="lang-strip-label" data-i18n="available_in">Disponible en</span>
+        <span class="lang-tag"><span class="flag">🇫🇷</span> Français</span>
+        <span class="lang-tag"><span class="flag">🇬🇧</span> English</span>
+        <span class="lang-tag"><span class="flag">🇩🇪</span> Deutsch</span>
+        <span class="lang-tag"><span class="flag">🇪🇸</span> Español</span>
+      </div>
+      <div class="ebook-price-block">
+        <div>
+          <div class="price-main">34,99€</div>
+          <div class="price-sub" data-i18n="price_sub">Accès immédiat · PDF · 4 langues incluses</div>
+        </div>
+        <a href="https://buy.stripe.com/cNi7sLag1gi89fifoyeZ206" class="btn-cta e3-btn" target="_blank" data-i18n="btn_buy">Télécharger maintenant →</a>
+      </div>
+      <div class="garantie" data-i18n="garantie">🔒 Paiement sécurisé · Produit numérique · achat définitif</div>
+    </div>
+  </div>
+
+  <!-- POUR QUI -->
+  <div class="section" style="background: var(--warm);">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="divider-text" data-i18n="pour_qui">Pour qui</div>
+      <div class="features-grid" style="margin-top:1.5rem;">
+        <div class="feature-card e3-feature">
+          <div class="feature-icon">📚</div>
+          <div class="feature-title" data-i18n="e3_f1_title">Étudiants qui en ont marre de bachoter</div>
+          <div class="feature-text" data-i18n="e3_f1_text">Arrêter de tout oublier 2 semaines après l'examen. Apprendre vraiment, pas mémoriser temporairement. Ce programme change définitivement la façon d'étudier.</div>
+        </div>
+        <div class="feature-card e3-feature">
+          <div class="feature-icon">🚀</div>
+          <div class="feature-title" data-i18n="e3_f2_title">Jeunes actifs qui veulent progresser vite</div>
+          <div class="feature-text" data-i18n="e3_f2_text">Apprendre une nouvelle compétence, une langue, un domaine technique, deux fois plus vite avec les bonnes méthodes. L'apprentissage efficace est un avantage concurrentiel réel.</div>
+        </div>
+        <div class="feature-card e3-feature">
+          <div class="feature-icon">🔬</div>
+          <div class="feature-title" data-i18n="e3_f3_title">Curieux qui veulent comprendre leur cerveau</div>
+          <div class="feature-text" data-i18n="e3_f3_text">Ebbinghaus, Roediger, Bjork, Walker, les chercheurs dont personne ne t'a parlé mais qui ont révolutionné la compréhension de la mémoire humaine.</div>
+        </div>
+        <div class="feature-card e3-feature">
+          <div class="feature-icon">💡</div>
+          <div class="feature-title" data-i18n="e3_f4_title">Reconvertis et autodidactes</div>
+          <div class="feature-text" data-i18n="e3_f4_text">Apprendre sans cadre d'école, seul, en autonomie. Ce programme te donne la structure et les méthodes pour progresser de façon autonome et durable.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENU -->
+  <div class="section">
+    <h3 class="section-title" data-i18n="e3_contents_title">Ce que tu vas maîtriser</h3>
+    <div class="toc">
+      <div class="toc-item">
+        <div class="toc-num">01</div>
+        <div class="toc-content">
+          <div class="toc-part">La science de l'oubli et de la mémoire</div>
+          <div class="toc-detail" data-i18n="e3_td1">Courbe d'Ebbinghaus · Effet de test (Roediger 2006) · Désirable difficulté · Neurogenèse hippocampique</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">02</div>
+        <div class="toc-content">
+          <div class="toc-part">Les fondations · Mois 1</div>
+          <div class="toc-detail" data-i18n="e3_td2">Anki et répétition espacée · Blank Page Recall · Questions avant-lecture · Protocole sommeil</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">03</div>
+        <div class="toc-content">
+          <div class="toc-part">Techniques avancées · Mois 2</div>
+          <div class="toc-detail" data-i18n="e3_td3">Méthode Feynman · Palais de la mémoire · Mind mapping · Deep work · Gestion des distractions</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">04</div>
+        <div class="toc-content">
+          <div class="toc-part">Ancrage et système à vie · Mois 3</div>
+          <div class="toc-detail" data-i18n="e3_td4">PKM · Zettelkasten · Planning hebdomadaire · Protocole physique · Système d'apprentissage personnalisé</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMOIGNAGES -->
+  <div class="section" style="background: var(--warm);">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h3 class="section-title" data-i18n="temo_title">Ce qu'ils en disent</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-lang">🇫🇷 Français</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">« J'ai installé Anki après la semaine 2. En 3 semaines mon taux de rétention est passé de 40% à 85%. J'ai eu 16/20 à mon partiel de pharmacologie contre 11/20 le semestre dernier. »</div>
+          <div class="testimonial-author">Pauline T., 21 ans, étudiante en médecine · Lille</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇬🇧 English</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"I'd tried Anki before but never understood how to use it properly. This program taught me the exact card structure and daily routine. My retention went from 35% to 80% in 6 weeks. Genuinely life-changing."</div>
+          <div class="testimonial-author">Aisha O., 22, law student · London</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇩🇪 Deutsch</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">„Die Leerseiten-Methode hat mein Lernen revolutioniert. Ich dachte, ich hätte verstanden, in Wirklichkeit habe ich nur wiedererkannt. Der Unterschied ist enorm. Meine Noten haben sich in einem Semester deutlich verbessert."</div>
+          <div class="testimonial-author">Lena S., 20, Medizinstudentin · Berlin</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇪🇸 Español</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">«El método Feynman me salvó en los exámenes orales. Antes memorizaba sin entender. Ahora puedo explicar cualquier concepto en palabras simples, y eso significa que realmente lo domino.»</div>
+          <div class="testimonial-author">Diego R., 23 años, estudiante de ingeniería · Sevilla</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇫🇷 Français</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">« Je me suis reconverti à 35 ans dans le développement web. Ce programme m'a appris à apprendre seul, efficacement. J'ai maîtrisé Python en 4 mois avec les méthodes de ce guide. »</div>
+          <div class="testimonial-author">Kevin B., 35 ans, en reconversion · Nantes</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇬🇧 English</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"The spaced repetition calendar transformed my study habits. I used to cram the night before. Now I review 15 minutes each morning. I retain more, stress less, and my A-level results showed it."</div>
+          <div class="testimonial-author">Tom B., 18, A-level student · Edinburgh</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section">
+    <h3 class="section-title" data-i18n="faq_title">Questions fréquentes</h3>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e3_faq1q">C'est adapté à quel âge ? Lycée ? Université ? Adulte en formation ?</div>
+        <div class="faq-a" data-i18n="e3_faq1a">De 15 à 60 ans. Les méthodes d'apprentissage efficace sont universelles, elles s'appliquent à n'importe quel contenu, à n'importe quel âge, dans n'importe quel contexte. Les exemples couvrent lycéens, étudiants et adultes en reconversion.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e3_faq2q">J'utilise déjà des flashcards. Qu'est-ce que ce programme m'apporte de plus ?</div>
+        <div class="faq-a" data-i18n="e3_faq2a">La plupart des personnes utilisent les flashcards sans les optimiser. Ce programme t'apprend à créer des cartes vraiment efficaces, à les combiner avec le rappel actif et Feynman, et à construire un système complet, pas juste un outil isolé.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e3_faq3q">Est-ce que Anki est obligatoire pour suivre le programme ?</div>
+        <div class="faq-a" data-i18n="e3_faq3a">Non. Anki est fortement recommandé car c'est l'outil le plus efficace pour la répétition espacée, mais le programme propose aussi une alternative de calendrier manuel sans outil numérique.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-bottom">
+    <h2 data-i18n="e3_cta_h2">Apprendre est un superpouvoir.<br>Tu viens de l'activer.</h2>
+    <p data-i18n="e3_cta_sub">Les méthodes que l'école ne t'a jamais apprises, pour 34,99€.</p>
+    <div class="cta-group">
+      <a href="https://buy.stripe.com/cNi7sLag1gi89fifoyeZ206" class="btn-cta e3-btn" style="font-size:1rem; padding:1rem 2.5rem;" target="_blank" data-i18n="e3_btn_final">Télécharger pour 34,99€ →</a>
+    </div>
+    <div class="garantie" data-i18n="garantie_final">🔒 Paiement sécurisé · Achat définitif · Produit numérique · PDF immédiat</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- EBOOK 4 : SORTIR DU BROUILLARD        -->
+<!-- ═══════════════════════════════════════ -->
+<div class="page-sep e4-sep" id="ebook4"></div>
+
+<section class="landing">
+  <div class="ebook-hero">
+    <div class="ebook-cover e4-cover animate">
+      <div class="cover-num">Programme 04 · 49,99€</div>
+      <div style="flex:1"></div>
+      <div class="cover-title" data-i18n="e4_cover_title">Sortir du<br>Brouillard</div>
+      <div class="cover-sub" data-i18n="e4_cover_sub">Reconstruction après l'épuisement émotionnel</div>
+    </div>
+    <div class="ebook-intro animate delay-1">
+      <div class="badge e4-badge" data-i18n="e4_badge">Burnout & Reconstruction émotionnelle</div>
+      <h2 data-i18n="e4_h2">Tu n'es pas cassé(e).<br>Tu es épuisé(e).<br>Ce n'est pas pareil.</h2>
+      <p data-i18n="e4_p1">Ce que tu ressens a un nom. Et une biologie. Et des solutions. Ce n'est pas un manque de volonté, pas un défaut de caractère, c'est un système nerveux surchargé qui a besoin d'une architecture de reconstruction précise.</p>
+      <p data-i18n="e4_p2">Ce programme de 90 jours te guide semaine par semaine, avec des exercices accessibles même les jours sans énergie, des exemples concrets pour ne jamais être seul(e) face à la page blanche, et des protocoles fondés sur la science, pas sur l'espoir.</p>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-num e4-accent">25</div>
+          <div class="stat-label" data-i18n="e4_stat1">Exercices de reconstruction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num e4-accent">5</div>
+          <div class="stat-label" data-i18n="e4_stat2">Piliers scientifiques</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num e4-accent">90j</div>
+          <div class="stat-label" data-i18n="e4_stat3">Un pas à la fois</div>
+        </div>
+      </div>
+      <div class="lang-strip">
+        <span class="lang-strip-label" data-i18n="available_in">Disponible en</span>
+        <span class="lang-tag"><span class="flag">🇫🇷</span> Français</span>
+        <span class="lang-tag"><span class="flag">🇬🇧</span> English</span>
+        <span class="lang-tag"><span class="flag">🇩🇪</span> Deutsch</span>
+        <span class="lang-tag"><span class="flag">🇪🇸</span> Español</span>
+      </div>
+      <div class="ebook-price-block">
+        <div>
+          <div class="price-main">49,99€</div>
+          <div class="price-sub" data-i18n="price_sub">Accès immédiat · PDF · 4 langues incluses</div>
+        </div>
+        <a href="https://buy.stripe.com/3cIaEXco95DufDG6S2eZ203" class="btn-cta e4-btn" target="_blank" data-i18n="btn_buy">Télécharger maintenant →</a>
+      </div>
+      <div class="garantie" data-i18n="garantie">🔒 Paiement sécurisé · Produit numérique · achat définitif</div>
+    </div>
+  </div>
+
+  <!-- AVERTISSEMENT BIENVEILLANT -->
+  <div style="background: #FEF9E7; border-left: 4px solid #D4AC0D; padding: 1.25rem 2rem; max-width:1100px; margin: 0 auto;">
+    <p style="font-size:0.88rem; color:#784212; margin:0;">
+      <strong data-i18n="e4_warning_title">Note importante :</strong> <span data-i18n="e4_warning_text">Ce programme accompagne la reconstruction progressive, pas les crises aiguës.
+      Si tu traverses des pensées de désespoir profond, contacte le <strong>3114</strong> (France) · <strong>0800 32 123</strong> (Belgique) · <strong>143</strong> (Suisse).
+    </p>
+  </div>
+
+  <!-- POUR QUI -->
+  <div class="section" style="background: var(--warm);">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="divider-text" data-i18n="pour_qui">Pour qui</div>
+      <div class="features-grid" style="margin-top:1.5rem;">
+        <div class="feature-card e4-feature">
+          <div class="feature-icon">🌫️</div>
+          <div class="feature-title" data-i18n="e4_f1_title">Tu traverses un épuisement émotionnel</div>
+          <div class="feature-text" data-i18n="e4_f1_text">Burnout, dépression légère à modérée, anxiété chronique, perte de sens. Ce programme t'accompagne avec des exercices calibrés pour les jours sans énergie, pas pour les jours au sommet.</div>
+        </div>
+        <div class="feature-card e4-feature">
+          <div class="feature-icon">💔</div>
+          <div class="feature-title" data-i18n="e4_f2_title">Tu ne te reconnais plus</div>
+          <div class="feature-text" data-i18n="e4_f2_text">L'épuisement érode l'identité. Tu n'es plus la même personne qu'avant. Ce programme travaille spécifiquement à retrouver qui tu es au-delà de ce que tu traverses.</div>
+        </div>
+        <div class="feature-card e4-feature">
+          <div class="feature-icon">🧭</div>
+          <div class="feature-title" data-i18n="e4_f3_title">Tu as perdu le sens</div>
+          <div class="feature-text" data-i18n="e4_f3_text">Tu ne sais plus pourquoi tu fais ce que tu fais. Le programme adresse directement la clarification des valeurs, la vision et la reconstruction d'une boussole intérieure.</div>
+        </div>
+        <div class="feature-card e4-feature">
+          <div class="feature-icon">🌱</div>
+          <div class="feature-title" data-i18n="e4_f4_title">Tu veux avancer, même doucement</div>
+          <div class="feature-text" data-i18n="e4_f4_text">Ce programme est fait pour des personnes épuisées. Chaque exercice est réalisable en 10 à 20 minutes. Chaque exemple montre concrètement comment faire, même les jours les plus difficiles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENU -->
+  <div class="section">
+    <h3 class="section-title" data-i18n="e4_contents_title">Les 3 mois du programme</h3>
+    <div class="toc">
+      <div class="toc-item">
+        <div class="toc-num">M1</div>
+        <div class="toc-content">
+          <div class="toc-part">Stabilisation : Sortir de l'état d'urgence</div>
+          <div class="toc-detail" data-i18n="e4_td1">Journal de programme · Inventaire d'énergie · Cohérence cardiaque · Marche consciente · Grounding · Protocole Pennebaker · Identification des TAN</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">M2</div>
+        <div class="toc-content">
+          <div class="toc-part">Reconstruction intérieure</div>
+          <div class="toc-detail" data-i18n="e4_td2">Carte des relations · Règle des 5 minutes · Journal TCC · Test de réalité · Timeline des forces · Lettre de compassion · Clarification des valeurs</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">M3</div>
+        <div class="toc-content">
+          <div class="toc-part">Réinvention et ancrage</div>
+          <div class="toc-detail" data-i18n="e4_td3">CNV et conversations difficiles · Rituel de connexion · Matrice énergie-sens · Poser ses limites · Lettre à la vie dans 5 ans · Programme de maintenance permanent</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">+</div>
+        <div class="toc-content">
+          <div class="toc-part">Partie 1 & 2 · Bases scientifiques</div>
+          <div class="toc-detail" data-i18n="e4_td4">Neurologie du burnout · Modèle de Maslach · Théorie polyvagale de Porges · 5 piliers de la reconstruction · Protocoles d'alarme</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMOIGNAGES -->
+  <div class="section" style="background: var(--warm);">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h3 class="section-title" data-i18n="temo_title">Ce qu'ils en disent</h3>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-lang">🇫🇷 Français</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">« J'ai téléchargé ce guide pendant mon arrêt maladie. Je ne savais même pas par où commencer. Les exemples dans chaque exercice m'ont montré exactement quoi faire, comment écrire, comment penser. Je n'étais plus seule face à la page. »</div>
+          <div class="testimonial-author">Isabelle F., 43 ans, enseignante · Toulouse</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇬🇧 English</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"After 8 months of burnout I'd tried everything. This was different because it starts with the biology, why my body was stuck, not just what to do. The cardiac coherence practice changed my sleep within a week."</div>
+          <div class="testimonial-author">Rachel H., 41, former teacher · Bristol</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇩🇪 Deutsch</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">„Das Pennebaker-Protokoll hat mir in 4 Tagen mehr gebracht als Monate des Grübelns. Zum ersten Mal habe ich aufgeschrieben, was ich wirklich fühle. Die Erleichterung war sofort spürbar."</div>
+          <div class="testimonial-author">Anna W., 38, Lehrerin · Stuttgart</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇪🇸 Español</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">«La parte sobre la neurología del burnout me liberó de una culpa que llevaba 2 años cargando. No era falta de voluntad. Era biología. Esa sola frase valió el precio del programa.»</div>
+          <div class="testimonial-author">Laura G., 35 años, directora de marketing · Valencia</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇫🇷 Français</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">« La partie sur la neurologie m'a libéré d'une honte que je portais depuis 2 ans. Ce n'était pas un manque de volonté. C'était de la biologie. Cette phrase seule valait le prix du programme. »</div>
+          <div class="testimonial-author">Mehdi K., 36 ans, manager · Marseille</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-lang">🇬🇧 English</div>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-quote">"I did the exercises week by week, at my own pace. Some weeks I only managed the cardiac coherence. That's enough to start. This program doesn't judge, it accompanies you. I felt that from page one."</div>
+          <div class="testimonial-author">Olivia S., 48, nurse · Dublin</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-quote">« J'ai fait les exercices les uns après les autres, à mon rythme. Certaines semaines je n'ai fait que la cohérence cardiaque. C'est suffisant pour commencer. Le programme ne juge pas, il accompagne. »</div>
+          <div class="testimonial-author">Sophie L., 29 ans, en reconstruction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section">
+    <h3 class="section-title" data-i18n="faq_title">Questions fréquentes</h3>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e4_faq1q">Ce programme remplace-t-il un suivi psychologique ou médical ?</div>
+        <div class="faq-a" data-i18n="e4_faq1a">Non, et il ne prétend pas le faire. Ce programme est un compagnon de reconstruction qui peut coexister avec un suivi thérapeutique. Pour les états sévères, un accompagnement professionnel reste nécessaire. Ce guide est explicite sur ses limites et ses contre-indications.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e4_faq2q">Je n'ai presque pas d'énergie. Est-ce que je peux quand même suivre ce programme ?</div>
+        <div class="faq-a" data-i18n="e4_faq2a">Oui, il a été conçu précisément pour les personnes épuisées. Les exercices du Mois 1 demandent moins de 15 minutes par jour. Chaque exemple montre comment faire même les jours sans énergie. Il n'y a pas de semaine "obligatoire parfaite".</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e4_faq3q">Est-ce que ça marche pour le burnout maternel / parental ?</div>
+        <div class="faq-a" data-i18n="e4_faq3a">Oui. Le programme est conçu pour l'épuisement émotionnel toutes causes confondues, professionnel, parental, relationnel, existentiel. Les exemples couvrent des profils très variés dont des parents épuisés.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)" data-i18n="e4_faq4q">Et si je n'arrive pas à le finir en 90 jours ?</div>
+        <div class="faq-a" data-i18n="e4_faq4a">Ce n'est pas un problème. Le programme n'expire pas. Tu peux le reprendre à tout moment, avancer à ton rythme, sauter des semaines et revenir. Ce qui compte, c'est d'avancer, pas de respecter un calendrier parfait.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-bottom">
+    <h2 data-i18n="e4_cta_h2">Tu mérites d'aller mieux.<br>La lumière revient toujours.</h2>
+    <p data-i18n="e4_cta_sub">Un pas à la fois. Ce programme est là pour chaque pas.</p>
+    <div class="cta-group">
+      <a href="https://buy.stripe.com/3cIaEXco95DufDG6S2eZ203" class="btn-cta" style="background: #7D3C98; color: white; font-size:1rem; padding:1rem 2.5rem;" target="_blank" data-i18n="e4_btn_final">Télécharger pour 49,99€ →</a>
+    </div>
+    <div class="garantie" data-i18n="garantie_final">🔒 Paiement sécurisé · Achat définitif · Produit numérique · PDF immédiat</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="margin-bottom:1rem;">
+    <span style="font-family:'Playfair Display',serif; font-size:1.1rem; color:rgba(255,255,255,0.7);">MindProtocol</span>
+  </div>
+  <div style="margin-bottom:1rem; display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
+    <a href="legal.html#mentions" data-i18n="footer_mentions">Mentions légales</a>
+    <a href="legal.html#cgv" data-i18n="footer_cgv">CGV</a>
+    <a href="legal.html#contact" data-i18n="footer_contact">Contact</a>
+    <a href="legal.html#digital" data-i18n="footer_digital_policy">Politique d'achat numérique</a>
+    <a href="legal.html#privacy" data-i18n="footer_privacy">Politique de confidentialité</a>
+  </div>
+  <div data-i18n="footer_copy">© 2025 MindProtocol · mind-protocol.com</div>
+  <div style="margin-top:0.5rem; font-size:0.72rem;" data-i18n="footer_crisis">
+    Urgences : France 3114 · Belgique 0800 32 123 · Suisse 143 · Luxembourg 45 45 45 · UK 116 123 · Deutschland 0800 111 0 111 · España 024
+  </div>
+</footer>
+
+
+<script>
+var CAT_I18N = {
+  fr:{
+    nav_e1:"Reprogramme",nav_e2:"Dirigeant Équilibré",nav_e3:"Apprendre",nav_e4:"Brouillard",
+    hero_overline:"MindProtocol.com · Neurosciences & Mindset",
+    hero_h1:"Reprogramme ton cerveau.<br>Transforme ta vie.",
+    hero_sub:"4 programmes scientifiques. 90 jours chacun. Des résultats mesurables, pas des promesses.",
+    cat_title:"Les 4 programmes",cat_sub:"Fondés sur les neurosciences. Conçus pour la vie réelle.",
+    e1_title:"Reprogramme ton Cerveau",e1_tag:"Maîtriser son esprit dans un monde chaotique",
+    e2_title:"Le Dirigeant Équilibré",e2_tag:"Performance durable sans burnout",
+    e3_title:"Apprends à Apprendre",e3_tag:"Les méthodes que l'école ne t'a jamais apprises",
+    e4_title:"Sortir du Brouillard",e4_tag:"Reconstruction après l'épuisement émotionnel",
+    btn_buy:"Télécharger maintenant →",price_sub:"Accès immédiat · PDF · 4 langues incluses",
+    garantie:"🔒 Paiement sécurisé · Produit numérique · achat définitif",
+    available_in:"Disponible en",temo_title:"Ce qu'ils en disent",faq_title:"Questions fréquentes",
+    pour_qui:"Pour qui",contents_title:"Ce que contient le programme",systems_title:"Les 4 systèmes du programme",
+    e1_cover_title:"Reprogramme<br>ton Cerveau",e1_cover_sub:"Maîtriser son esprit dans un monde chaotique",
+    e1_badge:"Neurosciences & Mindset",e1_h2:"Et si tu utilisais enfin ton cerveau à son vrai potentiel ?",
+    e1_p1:"Tu travailles dur. Tu lis des livres. Tu essaies de changer. Mais quelque chose bloque. Toujours. La raison ? Personne ne t'a jamais expliqué comment ton cerveau fonctionne vraiment, et comment le reprogrammer délibérément.",
+    e1_p2:"Ce programme de 90 jours te donne les outils neurologiques concrets pour transformer tes habitudes, gérer ton stress à la source, et dépasser les croyances qui te retiennent, fondés sur 30 ans de recherches en neurosciences.",
+    e1_stat1:"Exercices pratiques",e1_stat2:"Parties complètes",days_prog:"Jours de programme",
+    e1_f1_title:"Tu te sens épuisé sans raison",e1_f2_title:"Tu répètes les mêmes patterns",
+    e1_f3_title:"Tu veux comprendre comment fonctionne ton cerveau",e1_f4_title:"Tu veux un programme concret, pas du flou",
+    e1_toc1:"Comprendre ton cerveau pour mieux le piloter",e1_toc2:"Apprendre à apprendre, les techniques des meilleurs",
+    e1_toc3:"Absorber le stress de la vie moderne",e1_toc4:"Reprogrammer ses croyances limitantes",e1_toc5:"Plan d'action 90 jours ultra détaillé",
+    e1_faq1q:"C'est pour quel niveau ? Je n'ai aucune formation en neurosciences.",
+    e1_faq1a:"Ce programme est conçu pour tout le monde, de 16 à 65 ans, sans aucun bagage scientifique. Les concepts neuroscientifiques sont expliqués avec des exemples du quotidien.",
+    e1_faq2q:"Combien de temps par jour faut-il consacrer au programme ?",
+    e1_faq2a:"Entre 15 et 30 minutes par jour. Le programme est conçu pour s'intégrer dans une vie chargée, pas pour rajouter du stress.",
+    faq_what_q:"Que reçois-je exactement à l'achat ?",
+    faq_what_a:"Un PDF immédiatement téléchargeable de plus de 150 pages. Aucun abonnement. Accès à vie. Lecture sur tous tes appareils.",
+    faq_digital_q:"Quelle est la politique d'achat pour un produit numérique ?",
+    faq_digital_a:"Conformément à la législation européenne (directive 2011/83/UE), les produits numériques téléchargés immédiatement sont exemptés du droit de rétractation. L'achat est définitif dès le téléchargement.",
+    e1_cta_h2:"Prêt(e) à reprogrammer<br>ton cerveau ?",e1_cta_sub:"90 jours. Des outils scientifiques. Un programme qui fonctionne dans la vraie vie.",
+    e2_cover_title:"Le Dirigeant<br>Équilibré",e2_badge:"Pour entrepreneurs, managers & dirigeants",
+    e2_h2:"Un Dirigeant Équilibré n'est pas moins ambitieux.<br>Il est plus dangereux, parce qu'il dure.",
+    e2_f1_title:"Tu décides mal en fin de journée",e2_f1_text:"La fatigue décisionnelle est réelle et mesurable. Ce programme t'apprend à gérer ton budget cognitif comme Bezos, Obama et Cook, avec des systèmes, pas de la volonté.",
+    e2_f2_title:"Tu sens le burnout approcher",e2_f2_text:"Signaux précoces, protocoles d'urgence, tableau de bord mensuel. Ce programme t'apprend à détecter les signaux avant qu'il soit trop tard.",
+    e2_f3_title:"Tu veux performer durablement",e2_f3_text:"Pas 18 mois brillants puis l'effondrement. Ce programme construit une architecture personnelle qui fonctionne encore dans 10 ans.",
+    e2_f4_title:"Ton équipe ressent ton stress",e2_f4_text:"Les neurones miroirs sont réels. Un dirigeant régulé crée un environnement de sécurité psychologique où la performance collective s'envole.",
+    e2_toc1:"Gestion de l'énergie cognitive",e2_toc2:"Organisation et décision",e2_toc3:"Leadership émotionnel",e2_toc4:"Vision, sens et durabilité",
+    e2_faq1q:"Je suis entrepreneur, pas PDG d'un grand groupe. C'est fait pour moi ?",
+    e2_faq1a:"Absolument. Ce programme s'adresse à toute personne qui dirige, une équipe de 3 personnes ou une entreprise de 300. Les systèmes sont universels.",
+    e2_faq2q:"Je suis déjà au bord du burnout. Ce programme est-il adapté à mon état ?",
+    e2_faq2a:"Oui, il commence précisément par la stabilisation biologique. Le Mois 1 est entièrement dédié à restaurer les fondations avant tout travail plus profond.",
+    e2_faq3a:"20 à 30 minutes par jour. Les rituels s'intègrent dans les routines existantes (matin, déjeuner, soir). Aucune journée marathon requise.",
+    e2_cta_h2:"Le dirigeant durable<br>commence ici.",e2_cta_sub:"Construire des systèmes qui fonctionnent encore dans 10 ans.",
+    e3_cover_title:"Apprends à<br>Apprendre",e3_cover_sub:"Mémoire · Concentration · Méthodes · Résultats",
+    e3_badge:"Neurosciences de l'apprentissage",
+    e3_h2:"L'école t'a appris quoi apprendre.<br>Personne ne t'a appris comment.",
+    e3_p1:"Tu relis tes cours. Tu surligns. Tu bachottes. Et quelques semaines après l'examen, tout est parti. Ce n'est pas un manque d'intelligence, c'est une méthode inadaptée. La science de l'apprentissage a tout changé. Ce programme te la transmet.",
+    e3_p2:"Répétition espacée, rappel actif, méthode Feynman, palais de la mémoire, des techniques validées par des centaines d'études, expliquées simplement, applicables dès ce soir.",
+    e3_stat2:"Rétention vs relecture",e3_stat3:"Programme complet",
+    e3_f1_title:"Étudiants qui en ont marre de bachoter",e3_f1_text:"Arrêter de tout oublier 2 semaines après l'examen. Apprendre vraiment, pas mémoriser temporairement.",
+    e3_f2_title:"Jeunes actifs qui veulent progresser vite",e3_f2_text:"Apprendre une nouvelle compétence, une langue, un domaine technique, deux fois plus vite avec les bonnes méthodes.",
+    e3_f3_title:"Curieux qui veulent comprendre leur cerveau",e3_f4_title:"Reconvertis et autodidactes",
+    e3_contents_title:"Ce que tu vas maîtriser",
+    e3_toc1:"La science de l'oubli et de la mémoire",e3_toc2:"Les fondations · Mois 1",e3_toc3:"Techniques avancées · Mois 2",e3_toc4:"Ancrage et système à vie · Mois 3",e3_toc5:"Programme 90 jours + système PKM personnel",
+    e3_faq1q:"C'est adapté à quel âge ? Lycée ? Université ? Adulte en formation ?",
+    e3_faq1a:"De 15 à 60 ans. Les méthodes d'apprentissage efficace sont universelles, elles s'appliquent à n'importe quel contenu, à n'importe quel âge.",
+    e3_faq2q:"J'utilise déjà des flashcards. Qu'est-ce que ce programme m'apporte de plus ?",
+    e3_faq2a:"La plupart des personnes utilisent les flashcards sans les optimiser. Ce programme t'apprend à créer des cartes vraiment efficaces et à construire un système complet.",
+    e3_faq3q:"Est-ce que Anki est obligatoire pour suivre le programme ?",
+    e3_faq3a:"Non. Anki est fortement recommandé car c'est l'outil le plus efficace, mais le programme propose aussi une alternative de calendrier manuel.",
+    e3_cta_h2:"Apprendre est un superpouvoir.<br>Tu viens de l'activer.",e3_cta_sub:"Les méthodes que l'école ne t'a jamais apprises, pour 34,99€.",
+    e4_cover_title:"Sortir du<br>Brouillard",e4_cover_sub:"Reconstruction après l'épuisement émotionnel",
+    e4_badge:"Burnout & Reconstruction émotionnelle",
+    e4_h2:"Tu n'es pas cassé(e).<br>Tu es épuisé(e).<br>Ce n'est pas pareil.",
+    e4_p1:"Ce que tu ressens a un nom. Et une biologie. Et des solutions. Ce n'est pas un manque de volonté, pas un défaut de caractère, c'est un système nerveux surchargé qui a besoin d'une architecture de reconstruction précise.",
+    e4_p2:"Ce programme de 90 jours te guide semaine par semaine, avec des exercices accessibles même les jours sans énergie, des exemples concrets et des protocoles fondés sur la science, pas sur l'espoir.",
+    e4_stat1:"Exercices de reconstruction",e4_stat2:"Piliers scientifiques",e4_stat3:"Un pas à la fois",
+    e4_warning_title:"Note importante :",e4_warning_text:"Ce programme accompagne la reconstruction progressive, pas les crises aiguës. Si tu traverses des pensées de désespoir profond, contacte le 3114 (France) · 0800 32 123 (Belgique) · 143 (Suisse).",
+    e4_f1_title:"Tu traverses un épuisement émotionnel",e4_f1_text:"Burnout, dépression légère à modérée, anxiété chronique, perte de sens. Ce programme t'accompagne avec des exercices calibrés pour les jours sans énergie.",
+    e4_f2_title:"Tu ne te reconnais plus",e4_f2_text:"L'épuisement érode l'identité. Ce programme travaille spécifiquement à retrouver qui tu es au-delà de ce que tu traverses.",
+    e4_f3_title:"Tu as perdu le sens",e4_f3_text:"Tu ne sais plus pourquoi tu fais ce que tu fais. Le programme adresse directement la clarification des valeurs et la reconstruction d'une boussole intérieure.",
+    e4_f4_title:"Tu veux avancer, même doucement",e4_f4_text:"Ce programme est fait pour des personnes épuisées. Chaque exercice est réalisable en 10 à 20 minutes.",
+    e4_contents_title:"Les 3 mois du programme",
+    e4_toc1:"Stabilisation : Sortir de l'état d'urgence",e4_toc2:"Reconstruction intérieure",e4_toc3:"Réinvention et ancrage",
+    e4_faq1q:"Ce programme remplace-t-il un suivi psychologique ou médical ?",
+    e4_faq1a:"Non, et il ne prétend pas le faire. Ce programme est un compagnon de reconstruction qui peut coexister avec un suivi thérapeutique.",
+    e4_faq2q:"Je n'ai presque pas d'énergie. Est-ce que je peux quand même suivre ce programme ?",
+    e4_faq2a:"Oui, il a été conçu précisément pour les personnes épuisées. Les exercices du Mois 1 demandent moins de 15 minutes par jour.",
+    e4_faq3q:"Est-ce que ça marche pour le burnout maternel / parental ?",
+    e4_faq3a:"Oui. Le programme est conçu pour l'épuisement émotionnel toutes causes confondues, professionnel, parental, relationnel, existentiel.",
+    e4_faq4q:"Et si je n'arrive pas à le finir en 90 jours ?",
+    e4_faq4a:"Ce n'est pas un problème. Le programme n'expire pas. Tu peux le reprendre à tout moment, avancer à ton rythme. Ce qui compte, c'est d'avancer, pas de respecter un calendrier parfait.",
+    e4_cta_h2:"Tu mérites d'aller mieux.<br>La lumière revient toujours.",e4_cta_sub:"Un pas à la fois. Ce programme est là pour chaque pas.",
+    footer_copy:"© 2025 MindProtocol · mind-protocol.com",footer_mentions:"Mentions légales",footer_cgv:"CGV",faq_link:"Questions fréquentes",e1_btn_final:"Télécharger pour 39,99€ →",e2_btn_final:"Télécharger pour 64,99€ →",e3_btn_final:"Télécharger pour 34,99€ →",e4_btn_final:"Télécharger pour 49,99€ →",garantie_final:"🔒 Paiement sécurisé · Achat définitif · Produit numérique · PDF immédiat",pdf_immediate:"PDF immédiat",e1_td1:"Neuroplasticité · Formation des habitudes (règle des 66 jours) · Cortex préfrontal · Système limbique",e1_td2:"Méthode Feynman · Répétition espacée · Flow · Mind mapping · Concentration profonde",e1_td3:"Cohérence cardiaque · Pleine conscience scientifique · Protocole anti-stress · Alimentation et cerveau",e1_td4:"TCC · Distorsions cognitives · Dialogue intérieur · Self-compassion (Kristin Neff)",e1_td5:"3 phases · 13 semaines · Actions quotidiennes · Tableau de suivi · Auto-évaluation finale",e2_td1:"Sommeil du dirigeant · Cohérence cardiaque · Alimentation pro-cerveau · Microrécupération NSDR",e2_td2:"GTD adapté dirigeants · Batching décisionnel · Matrice de délégation · Agenda du dirigeant",e2_td3:"Protocole STOP · Capital émotionnel de l\'équipe · Sécurité psychologique · Communication sous pression",e2_td4:"Clarification du \'pourquoi\' · Test de la semaine fantôme · Matrice énergie-sens · Lettre au successeur",e3_td1:"Courbe d\'Ebbinghaus · Effet de test (Roediger 2006) · Désirable difficulté · Neurogenèse hippocampique",e3_td2:"Anki et répétition espacée · Blank Page Recall · Questions avant-lecture · Protocole sommeil",e3_td3:"Méthode Feynman · Palais de la mémoire · Mind mapping · Deep work · Gestion des distractions",e3_td4:"PKM · Zettelkasten · Planning hebdomadaire · Protocole physique · Système d\'apprentissage personnalisé",e4_td1:"Journal de programme · Inventaire d\'énergie · Cohérence cardiaque · Marche consciente · Grounding · Protocole Pennebaker · Identification des TAN",e4_td2:"Carte des relations · Règle des 5 minutes · Journal TCC · Test de réalité · Timeline des forces · Lettre de compassion · Clarification des valeurs",e4_td3:"CNV et conversations difficiles · Rituel de connexion · Matrice énergie-sens · Poser ses limites · Lettre à la vie dans 5 ans · Programme de maintenance permanent",e4_td4:"Neurologie du burnout · Modèle de Maslach · Théorie polyvagale de Porges · 5 piliers de la reconstruction · Protocoles d\'alarme",prog_01:"Programme 01",prog_02:"Programme 02",prog_03:"Programme 03",prog_04:"Programme 04",e1_f1_text:"Malgré le sommeil, l\'énergie ne revient pas. Tu travailles mais tu n\'avances plus. Ce programme t\'explique pourquoi, et comment inverser la spirale biologiquement.",e1_f2_text:"Tu recommences toujours les mêmes erreurs, les mêmes relations difficiles. Ce n\'est pas un manque de volonté, ce sont des circuits neuronaux à reprogrammer.",e1_f3_text:"Neuroplasticité, cortisol, hippocampe, croyances limitantes, des concepts expliqués simplement, avec des applications quotidiennes concrètes.",e1_f4_text:"Pas d\'injonctions vagues. Chaque semaine a un objectif précis, des exercices détaillés et des exemples pour guider les débutants.",e3_f3_text:"Ebbinghaus, Roediger, Bjork, Walker, les chercheurs dont personne ne t\'a parlé mais qui ont révolutionné la compréhension de la mémoire humaine.",e3_f4_text:"Apprendre sans cadre d\'école, seul, en autonomie. Ce programme te donne la structure et les méthodes pour progresser de façon autonome et durable.",e2_p1:"Tu as construit quelque chose. Tu t\'es levé tôt, couché tard. Et pourtant, tu te demandes si tu es aussi performant qu\'avant. La réponse n\'est pas dans ton agenda, elle est dans la biologie de ton cerveau sous stress chronique.",e2_p2:"Ce programme de 90 jours t\'apprend à gérer ton énergie cognitive comme ton actif le plus précieux. 4 systèmes interdépendants. 13 semaines détaillées. Des protocoles que les meilleurs dirigeants du monde appliquent, enfin expliqués et adaptés à ta réalité.",footer_crisis:"Urgences : France 3114 · Belgique 0800 32 123 · Suisse 143 · Luxembourg 45 45 45 · UK 116 123 · Deutschland 0800 111 0 111 · España 024",footer_privacy:"Politique de confidentialité",footer_contact:"Contact",footer_digital_policy:"Politique d'achat numérique",
+  },
+  en:{
+    nav_e1:"Reprogram",nav_e2:"Balanced Leader",nav_e3:"Learn to Learn",nav_e4:"Out of Fog",
+    hero_overline:"MindProtocol.com · Neuroscience & Mindset",
+    hero_h1:"Reprogram your brain.<br>Transform your life.",
+    hero_sub:"4 scientific 90-day programs. Measurable results, not promises.",
+    cat_title:"The 4 programs",cat_sub:"Grounded in neuroscience. Designed for real life.",
+    e1_title:"Reprogram Your Brain",e1_tag:"Master your mind in a chaotic world",
+    e2_title:"The Balanced Leader",e2_tag:"Sustainable performance without burnout",
+    e3_title:"Learn to Learn",e3_tag:"The techniques your school never taught you",
+    e4_title:"Out of the Fog",e4_tag:"Reconstruction after emotional exhaustion",
+    btn_buy:"Download now →",price_sub:"Instant access · PDF · 4 languages included",
+    garantie:"🔒 Secure payment · Digital product · final sale",
+    available_in:"Available in",temo_title:"What they say",faq_title:"Frequently asked questions",
+    pour_qui:"Who it's for",contents_title:"What the program contains",systems_title:"The 4 program systems",
+    e1_cover_title:"Reprogram<br>Your Brain",e1_cover_sub:"Mastering your mind in a chaotic world",
+    e1_badge:"Neuroscience & Mindset",e1_h2:"What if you finally used your brain to its true potential?",
+    e1_p1:"You work hard. You read books. You try to change. But something always blocks you. The reason? No one ever explained how your brain really works, and how to deliberately reprogram it.",
+    e1_p2:"This 90-day program gives you the concrete neurological tools to transform your habits, manage stress at the source, and overcome the beliefs holding you back, grounded in 30 years of neuroscience research.",
+    e1_stat1:"Practical exercises",e1_stat2:"Complete parts",days_prog:"Days of program",
+    e1_f1_title:"You feel exhausted for no reason",e1_f2_title:"You repeat the same patterns",
+    e1_f3_title:"You want to understand how your brain works",e1_f4_title:"You want a concrete program, not vague advice",
+    e1_toc1:"Understanding your brain to pilot it better",e1_toc2:"Learning to learn, techniques of the best",
+    e1_toc3:"Absorbing modern life stress",e1_toc4:"Reprogramming limiting beliefs",e1_toc5:"Ultra-detailed 90-day action plan",
+    e1_faq1q:"What level is this for? I have no neuroscience background.",
+    e1_faq1a:"This program is designed for everyone, ages 16 to 65, with no scientific background. Neuroscientific concepts are explained with everyday examples.",
+    e1_faq2q:"How much time per day is needed?",
+    e1_faq2a:"Between 15 and 30 minutes per day. Designed to fit into a busy life, not to add stress.",
+    faq_what_q:"What exactly do I receive upon purchase?",
+    faq_what_a:"An immediately downloadable PDF of over 150 pages. No subscription. Lifetime access. Readable on all devices.",
+    faq_digital_q:"What is the digital product purchase policy?",
+    faq_digital_a:"In accordance with EU Directive 2011/83/EU, digital products downloaded immediately are exempt from the right of withdrawal. The purchase is final upon download.",
+    e1_cta_h2:"Ready to reprogram<br>your brain?",e1_cta_sub:"90 days. Scientific tools. A program that works in real life.",
+    e2_cover_title:"The Balanced<br>Leader",e2_badge:"For entrepreneurs, managers & executives",
+    e2_h2:"A Balanced Leader is not less ambitious.<br>They are more dangerous, because they last.",
+    e2_f1_title:"You make poor decisions late in the day",e2_f1_text:"Decision fatigue is real and measurable. This program teaches you to manage your cognitive budget like Bezos, Obama and Cook, with systems, not willpower.",
+    e2_f2_title:"You feel burnout approaching",e2_f2_text:"Early signals, emergency protocols, monthly dashboard. This program teaches you to detect the signals before it's too late.",
+    e2_f3_title:"You want to perform sustainably",e2_f3_text:"Not 18 brilliant months then collapse. This program builds a personal architecture that still works in 10 years.",
+    e2_f4_title:"Your team feels your stress",e2_f4_text:"Mirror neurons are real. A regulated leader creates psychological safety where collective performance soars.",
+    e2_toc1:"Cognitive energy management",e2_toc2:"Organization and decision",e2_toc3:"Emotional leadership",e2_toc4:"Vision, meaning and durability",
+    e2_faq1q:"I'm an entrepreneur, not a big company CEO. Is this for me?",
+    e2_faq1a:"Absolutely. This program is for anyone who leads, a team of 3 or a company of 300. The systems are universal and adapt to any organization size.",
+    e2_faq2q:"I'm already close to burnout. Is this program suited to my state?",
+    e2_faq2a:"Yes, it starts precisely with biological stabilization. Month 1 is entirely dedicated to restoring foundations before any deeper work.",
+    e2_faq3a:"20 to 30 minutes per day. The rituals integrate into existing routines (morning, lunch, evening). No marathon days required.",
+    e2_cta_h2:"The sustainable leader<br>starts here.",e2_cta_sub:"Building systems that still work in 10 years.",
+    e3_cover_title:"Learn<br>to Learn",e3_cover_sub:"Memory · Concentration · Methods · Results",
+    e3_badge:"Neuroscience of Learning",
+    e3_h2:"School taught you what to learn.<br>Nobody taught you how.",
+    e3_p1:"You re-read your notes. You highlight. You cram. And a few weeks after the exam, it's all gone. It's not a lack of intelligence, it's an ineffective method. The science of learning has changed everything. This program passes it on.",
+    e3_p2:"Spaced repetition, active recall, Feynman method, memory palace, techniques validated by hundreds of studies, explained simply, applicable from tonight.",
+    e3_stat2:"Retention vs re-reading",e3_stat3:"Complete program",
+    e3_f1_title:"Students tired of cramming",e3_f1_text:"Stop forgetting everything 2 weeks after the exam. Learn for real, not just temporarily memorize.",
+    e3_f2_title:"Young professionals who want to progress fast",e3_f2_text:"Learn a new skill, a language, a technical field, twice as fast with the right methods.",
+    e3_f3_title:"Curious people who want to understand their brain",e3_f4_title:"Career changers and self-taught learners",
+    e3_contents_title:"What you will master",
+    e3_toc1:"The science of forgetting and memory",e3_toc2:"Foundations · Month 1",e3_toc3:"Advanced techniques · Month 2",e3_toc4:"Anchoring and lifelong system · Month 3",e3_toc5:"90-day program + personal PKM system",
+    e3_faq1q:"What age is this for? High school? University? Adult learner?",
+    e3_faq1a:"Ages 15 to 60. Effective learning methods are universal, they apply to any content, any age, any context.",
+    e3_faq2q:"I already use flashcards. What does this program add?",
+    e3_faq2a:"Most people use flashcards without optimizing them. This program teaches you to create truly effective cards and build a complete system.",
+    e3_faq3q:"Is Anki mandatory to follow the program?",
+    e3_faq3a:"No. Anki is strongly recommended as the most effective spaced repetition tool, but the program also offers a manual calendar alternative.",
+    e3_cta_h2:"Learning is a superpower.<br>You just activated it.",e3_cta_sub:"The techniques your school never taught you, for 34.99€.",
+    e4_cover_title:"Out of<br>the Fog",e4_cover_sub:"Reconstruction after emotional exhaustion",
+    e4_badge:"Burnout & Emotional Reconstruction",
+    e4_h2:"You're not broken.<br>You're exhausted.<br>That's not the same thing.",
+    e4_p1:"What you're feeling has a name. And a biology. And solutions. It's not a lack of willpower, not a character flaw, it's an overloaded nervous system that needs a precise reconstruction architecture.",
+    e4_p2:"This 90-day program guides you week by week, with exercises accessible even on low-energy days, concrete examples so you're never alone facing a blank page, and science-based protocols, not hope.",
+    e4_stat1:"Reconstruction exercises",e4_stat2:"Scientific pillars",e4_stat3:"One step at a time",
+    e4_warning_title:"Important note:",e4_warning_text:"This program supports progressive reconstruction, not acute crises. If you're experiencing deep despair, contact: 988 (USA) · 116 123 (UK Samaritans) · 0800 111 0 111 (Germany).",
+    e4_f1_title:"You're going through emotional exhaustion",e4_f1_text:"Burnout, mild to moderate depression, chronic anxiety, loss of meaning. This program accompanies you with exercises calibrated for low-energy days.",
+    e4_f2_title:"You no longer recognize yourself",e4_f2_text:"Exhaustion erodes identity. This program works specifically on rediscovering who you are beyond what you're going through.",
+    e4_f3_title:"You've lost your sense of purpose",e4_f3_text:"You no longer know why you do what you do. The program directly addresses values clarification and rebuilding an inner compass.",
+    e4_f4_title:"You want to move forward, even slowly",e4_f4_text:"This program is made for exhausted people. Each exercise is doable in 10 to 20 minutes. Each example shows concretely how to do it.",
+    e4_contents_title:"The 3 months of the program",
+    e4_toc1:"Stabilization : Exiting emergency mode",e4_toc2:"Inner reconstruction",e4_toc3:"Reinvention and anchoring",
+    e4_faq1q:"Does this program replace psychological or medical support?",
+    e4_faq1a:"No, and it doesn't claim to. This program is a reconstruction companion that can coexist with therapeutic support.",
+    e4_faq2q:"I have almost no energy. Can I still follow this program?",
+    e4_faq2a:"Yes, it was designed precisely for exhausted people. Month 1 exercises take less than 15 minutes per day.",
+    e4_faq3q:"Does it work for parental burnout?",
+    e4_faq3a:"Yes. The program is designed for emotional exhaustion of all kinds, professional, parental, relational, existential.",
+    e4_faq4q:"What if I can't finish it in 90 days?",
+    e4_faq4a:"That's not a problem. The program doesn't expire. You can pick it up at any time, go at your own pace. What matters is moving forward, not following a perfect schedule.",
+    e4_cta_h2:"You deserve to feel better.<br>The light always comes back.",e4_cta_sub:"One step at a time. This program is here for every step.",
+    footer_copy:"© 2025 MindProtocol · mind-protocol.com",footer_mentions:"Legal notice",footer_cgv:"Terms & conditions",faq_link:"Frequently asked questions",e1_btn_final:"Download for 39.99€ →",e2_btn_final:"Download for 64.99€ →",e3_btn_final:"Download for 34.99€ →",e4_btn_final:"Download for 49.99€ →",garantie_final:"🔒 Secure payment · Final sale · Digital product · Instant PDF",pdf_immediate:"Instant PDF",e1_td1:"Neuroplasticity · Habit formation (66-day rule) · Prefrontal cortex · Limbic system",e1_td2:"Feynman method · Spaced repetition · Flow · Mind mapping · Deep concentration",e1_td3:"Cardiac coherence · Scientific mindfulness · Anti-stress protocol · Nutrition and the brain",e1_td4:"CBT · Cognitive distortions · Inner dialogue · Self-compassion (Kristin Neff)",e1_td5:"3 phases · 13 weeks · Daily actions · Progress tracker · Final self-assessment",e2_td1:"Leader\'s sleep · Cardiac coherence · Brain-friendly nutrition · NSDR micro-recovery",e2_td2:"GTD adapted for leaders · Decision batching · Delegation matrix · Leader agenda",e2_td3:"STOP protocol · Team emotional capital · Psychological safety · Communication under pressure",e2_td4:"Clarifying the \'why\' · Ghost week test · Energy-meaning matrix · Letter to successor",e3_td1:"Ebbinghaus curve · Testing effect (Roediger 2006) · Desirable difficulties · Hippocampal neurogenesis",e3_td2:"Anki and spaced repetition · Blank Page Recall · Pre-reading questions · Sleep protocol",e3_td3:"Feynman method · Memory palace · Mind mapping · Deep work · Distraction management",e3_td4:"PKM · Zettelkasten · Weekly planning · Physical protocol · Personalized learning system",e4_td1:"Program journal · Energy inventory · Cardiac coherence · Conscious walking · Grounding · Pennebaker protocol · ANT identification",e4_td2:"Relationship map · 5-minute rule · CBT journal · Reality test · Strengths timeline · Compassion letter · Values clarification",e4_td3:"NVC and difficult conversations · Connection ritual · Energy-meaning matrix · Setting limits · Letter to life in 5 years · Permanent maintenance program",e4_td4:"Burnout neurology · Maslach model · Porges polyvagal theory · 5 reconstruction pillars · Alert protocols",prog_01:"Program 01",prog_02:"Program 02",prog_03:"Program 03",prog_04:"Program 04",e1_f1_text:"Despite sleep, energy doesn\'t come back. You work but stop progressing. This program explains why, and how to reverse the spiral biologically.",e1_f2_text:"You keep repeating the same mistakes, the same difficult relationships. It\'s not a lack of willpower, these are neural circuits to reprogram.",e1_f3_text:"Neuroplasticity, cortisol, hippocampus, limiting beliefs, concepts explained simply, with concrete daily applications.",e1_f4_text:"No vague advice. Each week has a precise objective, detailed exercises and examples to guide complete beginners.",e3_f3_text:"Ebbinghaus, Roediger, Bjork, Walker, the researchers nobody told you about but who revolutionized our understanding of human memory.",e3_f4_text:"Learning without a school framework, alone, autonomously. This program gives you the structure and methods to progress independently and sustainably.",e2_p1:"You built something. You got up early, went to bed late. And yet you wonder if you\'re as effective as before. The answer isn\'t in your agenda, it\'s in the biology of your brain under chronic stress.",e2_p2:"This 90-day program teaches you to manage your cognitive energy as your most precious asset. 4 interdependent systems. 13 detailed weeks. Protocols the world\'s best leaders apply, finally explained and adapted to your reality.",footer_crisis:"Crisis lines: UK 116 123 (Samaritans) · Deutschland 0800 111 0 111 · España 024 · France 3114 · Suisse 143 · Luxembourg 45 45 45",footer_privacy:"Privacy policy",footer_contact:"Contact",footer_digital_policy:"Digital purchase policy",
+  },
+  de:{
+    nav_e1:"Gehirn neu",nav_e2:"Führungskraft",nav_e3:"Lernen lernen",nav_e4:"Aus dem Nebel",
+    hero_overline:"MindProtocol.com · Neurowissenschaften & Mindset",
+    hero_h1:"Programmiere dein Gehirn neu.<br>Transformiere dein Leben.",
+    hero_sub:"4 wissenschaftliche 90-Tage-Programme. Messbare Ergebnisse, keine Versprechen.",
+    cat_title:"Die 4 Programme",cat_sub:"Auf Neurowissenschaften basierend. Für das echte Leben konzipiert.",
+    e1_title:"Programmiere dein Gehirn neu",e1_tag:"Deinen Geist meistern in einer chaotischen Welt",
+    e2_title:"Die ausgeglichene Führungskraft",e2_tag:"Nachhaltige Leistung ohne Burnout",
+    e3_title:"Lernen lernen",e3_tag:"Die Techniken, die die Schule nie gelehrt hat",
+    e4_title:"Raus aus dem Nebel",e4_tag:"Wiederaufbau nach emotionaler Erschöpfung",
+    btn_buy:"Jetzt herunterladen →",price_sub:"Sofortzugang · PDF · 4 Sprachen inklusive",
+    garantie:"🔒 Sichere Zahlung · Digitales Produkt · endgültiger Kauf",
+    available_in:"Verfügbar in",temo_title:"Was sie sagen",faq_title:"Häufig gestellte Fragen",
+    pour_qui:"Für wen",contents_title:"Was das Programm enthält",systems_title:"Die 4 Programmsysteme",
+    e1_cover_title:"Programmiere<br>dein Gehirn neu",e1_cover_sub:"Deinen Geist meistern in einer chaotischen Welt",
+    e1_badge:"Neurowissenschaften & Mindset",e1_h2:"Was wäre, wenn du dein Gehirn endlich voll nutzen würdest?",
+    e1_p1:"Du arbeitest hart. Du liest Bücher. Du versuchst dich zu verändern. Aber etwas blockiert immer. Der Grund? Niemand hat dir jemals erklärt, wie dein Gehirn wirklich funktioniert, und wie man es gezielt umprogrammiert.",
+    e1_p2:"Dieses 90-Tage-Programm gibt dir die konkreten neurologischen Werkzeuge, um deine Gewohnheiten zu transformieren, Stress an der Quelle zu managen und einschränkende Überzeugungen zu überwinden.",
+    e1_stat1:"Praktische Übungen",e1_stat2:"Vollständige Teile",days_prog:"Tage Programm",
+    e1_f1_title:"Du fühlst dich grundlos erschöpft",e1_f2_title:"Du wiederholst dieselben Muster",
+    e1_f3_title:"Du willst verstehen, wie dein Gehirn funktioniert",e1_f4_title:"Du willst ein konkretes Programm, keine vagen Ratschläge",
+    e1_toc1:"Dein Gehirn verstehen, um es besser zu steuern",e1_toc2:"Lernen lernen, Techniken der Besten",
+    e1_toc3:"Den Stress des modernen Lebens absorbieren",e1_toc4:"Einschränkende Überzeugungen umprogrammieren",e1_toc5:"Ultra-detaillierter 90-Tage-Aktionsplan",
+    e1_faq1q:"Für welches Niveau ist das? Ich habe keinen wissenschaftlichen Hintergrund.",
+    e1_faq1a:"Dieses Programm ist für alle konzipiert, von 16 bis 65 Jahren, ohne jeglichen wissenschaftlichen Hintergrund.",
+    e1_faq2q:"Wie viel Zeit pro Tag wird benötigt?",
+    e1_faq2a:"Zwischen 15 und 30 Minuten täglich. Konzipiert für ein volles Leben, nicht um Stress hinzuzufügen.",
+    faq_what_q:"Was erhalte ich genau beim Kauf?",
+    faq_what_a:"Ein sofort herunterladbares PDF mit über 150 Seiten. Kein Abonnement. Lebenslanger Zugang. Lesbar auf allen Geräten.",
+    faq_digital_q:"Was ist die Kaufpolitik für digitale Produkte?",
+    faq_digital_a:"Gemäß EU-Richtlinie 2011/83/EU sind sofort heruntergeladene digitale Produkte vom Widerrufsrecht ausgenommen. Der Kauf ist endgültig.",
+    e1_cta_h2:"Bereit, dein Gehirn<br>neu zu programmieren?",e1_cta_sub:"90 Tage. Wissenschaftliche Werkzeuge. Ein Programm, das im echten Leben funktioniert.",
+    e2_cover_title:"Die ausgeglichene<br>Führungskraft",e2_badge:"Für Unternehmer, Manager & Führungskräfte",
+    e2_h2:"Eine ausgeglichene Führungskraft ist nicht weniger ehrgeizig.<br>Sie ist gefährlicher, weil sie dauerhaft leistet.",
+    e2_f1_title:"Du triffst am Tagesende schlechte Entscheidungen",e2_f1_text:"Entscheidungsmüdigkeit ist real und messbar. Dieses Programm lehrt dich, dein kognitives Budget zu verwalten, mit Systemen, nicht Willenskraft.",
+    e2_f2_title:"Du spürst den Burnout nahen",e2_f2_text:"Frühwarnsignale, Notfallprotokolle, monatliches Dashboard. Dieses Programm lehrt dich, die Signale zu erkennen, bevor es zu spät ist.",
+    e2_f3_title:"Du willst dauerhaft leisten",e2_f3_text:"Nicht 18 brillante Monate dann Zusammenbruch. Dieses Programm baut eine persönliche Architektur, die noch in 10 Jahren funktioniert.",
+    e2_f4_title:"Dein Team spürt deinen Stress",e2_f4_text:"Spiegelneuronen sind real. Eine regulierte Führungskraft schafft psychologische Sicherheit, in der die kollektive Leistung steigt.",
+    e2_toc1:"Kognitive Energieverwaltung",e2_toc2:"Organisation und Entscheidung",e2_toc3:"Emotionale Führung",e2_toc4:"Vision, Sinn und Dauerhaftigkeit",
+    e2_faq1q:"Ich bin Unternehmer, kein Großkonzern-CEO. Ist das für mich?",
+    e2_faq1a:"Absolut. Dieses Programm richtet sich an jeden, der führt, ein Team von 3 Personen oder ein Unternehmen von 300.",
+    e2_faq2q:"Ich bin schon am Rande des Burnouts. Ist dieses Programm für meinen Zustand geeignet?",
+    e2_faq2a:"Ja, es beginnt genau mit der biologischen Stabilisierung. Monat 1 ist vollständig der Wiederherstellung der Grundlagen gewidmet.",
+    e2_faq3a:"20 bis 30 Minuten täglich. Die Rituale integrieren sich in bestehende Routinen. Keine Marathon-Tage erforderlich.",
+    e2_cta_h2:"Die dauerhafte Führungskraft<br>beginnt hier.",e2_cta_sub:"Systeme aufbauen, die noch in 10 Jahren funktionieren.",
+    e3_cover_title:"Lernen<br>lernen",e3_cover_sub:"Gedächtnis · Konzentration · Methoden · Ergebnisse",
+    e3_badge:"Neurowissenschaften des Lernens",
+    e3_h2:"Die Schule lehrte dich, WAS du lernen sollst.<br>Niemand lehrte dich, WIE.",
+    e3_p1:"Du liest deine Notizen erneut. Du unterstreichst. Du paukst. Und einige Wochen nach der Prüfung ist alles weg. Es ist kein Mangel an Intelligenz, es ist eine ungeeignete Methode. Die Lernwissenschaft hat alles verändert.",
+    e3_p2:"Verteilte Wiederholung, aktiver Abruf, Feynman-Methode, Gedächtnispalast, Techniken, die durch Hunderte von Studien validiert wurden, einfach erklärt, noch heute Abend anwendbar.",
+    e3_stat2:"Behaltensrate vs. Wiederlesen",e3_stat3:"Vollständiges Programm",
+    e3_f1_title:"Schüler, die das Pauken satt haben",e3_f1_text:"Aufhören, alles 2 Wochen nach der Prüfung zu vergessen. Wirklich lernen, nicht nur vorübergehend memorieren.",
+    e3_f2_title:"Junge Berufstätige, die schnell vorankommen wollen",e3_f2_text:"Eine neue Kompetenz, eine Sprache, ein technisches Gebiet lernen, doppelt so schnell mit den richtigen Methoden.",
+    e3_f3_title:"Neugierige, die ihr Gehirn verstehen wollen",e3_f4_title:"Quereinsteiger und Autodidakten",
+    e3_contents_title:"Was du meistern wirst",
+    e3_toc1:"Die Wissenschaft des Vergessens und der Erinnerung",e3_toc2:"Grundlagen · Monat 1",e3_toc3:"Fortgeschrittene Techniken · Monat 2",e3_toc4:"Verankerung und lebenslanges System · Monat 3",e3_toc5:"90-Tage-Programm + persönliches PKM-System",
+    e3_faq1q:"Für welches Alter geeignet? Gymnasium? Universität? Erwachsenenbildung?",
+    e3_faq1a:"Von 15 bis 60 Jahren. Effektive Lernmethoden sind universell, sie gelten für jede Art von Inhalt, in jedem Alter.",
+    e3_faq2q:"Ich benutze bereits Lernkarten. Was bringt mir dieses Programm zusätzlich?",
+    e3_faq2a:"Die meisten Menschen benutzen Lernkarten ohne sie zu optimieren. Dieses Programm lehrt dich, wirklich effektive Karten zu erstellen und ein vollständiges System aufzubauen.",
+    e3_faq3q:"Ist Anki für das Programm zwingend erforderlich?",
+    e3_faq3a:"Nein. Anki wird als effektivstes Werkzeug empfohlen, aber das Programm bietet auch eine manuelle Kalender-Alternative.",
+    e3_cta_h2:"Lernen ist eine Superkraft.<br>Du hast sie gerade aktiviert.",e3_cta_sub:"Die Techniken, die die Schule nie gelehrt hat, für 34,99€.",
+    e4_cover_title:"Raus aus<br>dem Nebel",e4_cover_sub:"Wiederaufbau nach emotionaler Erschöpfung",
+    e4_badge:"Burnout & Emotionaler Wiederaufbau",
+    e4_h2:"Du bist nicht kaputt.<br>Du bist erschöpft.<br>Das ist nicht dasselbe.",
+    e4_p1:"Was du fühlst, hat einen Namen. Und eine Biologie. Und Lösungen. Es ist kein Mangel an Willenskraft, kein Charakterfehler, es ist ein überlastetes Nervensystem, das eine präzise Wiederaufbau-Architektur braucht.",
+    e4_p2:"Dieses 90-Tage-Programm begleitet dich Woche für Woche, mit Übungen, die auch an energiearmen Tagen zugänglich sind, konkreten Beispielen und wissenschaftlich fundierten Protokollen.",
+    e4_stat1:"Wiederaufbau-Übungen",e4_stat2:"Wissenschaftliche Säulen",e4_stat3:"Ein Schritt nach dem anderen",
+    e4_warning_title:"Wichtiger Hinweis:",e4_warning_text:"Dieses Programm begleitet den progressiven Wiederaufbau, nicht akute Krisen. Bei tiefer Verzweiflung: 0800 111 0 111 (Deutschland) · 143 (Schweiz) · 142 (Österreich).",
+    e4_f1_title:"Du durchlebst eine emotionale Erschöpfung",e4_f1_text:"Burnout, leichte bis mittlere Depression, chronische Angst, Sinnverlust. Dieses Programm begleitet dich mit Übungen für energiearme Tage.",
+    e4_f2_title:"Du erkennst dich selbst nicht mehr",e4_f2_text:"Erschöpfung erodiert die Identität. Dieses Programm arbeitet gezielt daran, wiederzufinden, wer du jenseits deiner Situation bist.",
+    e4_f3_title:"Du hast den Sinn verloren",e4_f3_text:"Du weißt nicht mehr, warum du tust, was du tust. Das Programm adressiert direkt die Klärung von Werten und den Wiederaufbau eines inneren Kompasses.",
+    e4_f4_title:"Du willst vorankommen, auch langsam",e4_f4_text:"Dieses Programm ist für erschöpfte Menschen gemacht. Jede Übung ist in 10 bis 20 Minuten durchführbar.",
+    e4_contents_title:"Die 3 Monate des Programms",
+    e4_toc1:"Stabilisierung : Den Ausnahmezustand verlassen",e4_toc2:"Innerer Wiederaufbau",e4_toc3:"Neuerfindung und Verankerung",
+    e4_faq1q:"Ersetzt dieses Programm psychologische oder medizinische Betreuung?",
+    e4_faq1a:"Nein, und das behauptet es nicht. Dieses Programm ist ein Wiederaufbau-Begleiter, der neben einer therapeutischen Betreuung existieren kann.",
+    e4_faq2q:"Ich habe kaum Energie. Kann ich diesem Programm trotzdem folgen?",
+    e4_faq2a:"Ja, es wurde genau für erschöpfte Menschen konzipiert. Die Übungen des Monats 1 benötigen weniger als 15 Minuten täglich.",
+    e4_faq3q:"Funktioniert es auch bei elterlichem Burnout?",
+    e4_faq3a:"Ja. Das Programm ist für emotionale Erschöpfung jeglicher Art konzipiert, beruflich, elterlich, relational, existenziell.",
+    e4_faq4q:"Was, wenn ich es nicht in 90 Tagen abschließe?",
+    e4_faq4a:"Das ist kein Problem. Das Programm läuft nicht ab. Du kannst jederzeit weitermachen, in deinem eigenen Tempo. Was zählt, ist Vorwärtskommen, nicht ein perfekter Zeitplan.",
+    e4_cta_h2:"Du verdienst es, besser zu werden.<br>Das Licht kommt immer zurück.",e4_cta_sub:"Ein Schritt nach dem anderen. Dieses Programm ist für jeden Schritt da.",
+    footer_copy:"© 2025 MindProtocol · mind-protocol.com",footer_mentions:"Impressum",footer_cgv:"AGB",faq_link:"Häufig gestellte Fragen",e1_btn_final:"Jetzt herunterladen für 39,99€ →",e2_btn_final:"Jetzt herunterladen für 64,99€ →",e3_btn_final:"Jetzt herunterladen für 34,99€ →",e4_btn_final:"Jetzt herunterladen für 49,99€ →",garantie_final:"🔒 Sichere Zahlung · Endgültiger Kauf · Digitales Produkt · Sofort-PDF",pdf_immediate:"Sofort-PDF",e1_td1:"Neuroplastizität · Gewohnheitsbildung (66-Tage-Regel) · Präfrontaler Kortex · Limbisches System",e1_td2:"Feynman-Methode · Verteilte Wiederholung · Flow · Mind-Mapping · Tiefe Konzentration",e1_td3:"Herzkoheränz · Wissenschaftliche Achtsamkeit · Anti-Stress-Protokoll · Ernährung und Gehirn",e1_td4:"KVT · Kognitive Verzerrungen · Innerer Monolog · Selbstmitgefühl (Kristin Neff)",e1_td5:"3 Phasen · 13 Wochen · Tägliche Aktionen · Fortschrittstabelle · Abschlussbewertung",e2_td1:"Schlaf der Führungskraft · Herzkoheränz · Gehirnfreundliche Ernährung · NSDR-Mikro-Erholung",e2_td2:"GTD für Führungskräfte · Entscheidungs-Batching · Delegationsmatrix · Führungskraft-Kalender",e2_td3:"STOPP-Protokoll · Emotionales Kapital des Teams · Psychologische Sicherheit · Kommunikation unter Druck",e2_td4:"Klärung des \'Warum\' · Geister-Wochen-Test · Energie-Sinn-Matrix · Brief an den Nachfolger",e3_td1:"Ebbinghaus-Kurve · Testeffekt (Roediger 2006) · Erwünschte Schwierigkeiten · Hippocampus-Neurogenese",e3_td2:"Anki und verteilte Wiederholung · Leerseiten-Abruf · Fragen vor dem Lesen · Schlafprotokoll",e3_td3:"Feynman-Methode · Gedächtnispalast · Mind-Mapping · Deep Work · Ablenkungsmanagement",e3_td4:"PKM · Zettelkasten · Wochenplanung · Körperprotokoll · Personalisiertes Lernsystem",e4_td1:"Programmtagebuch · Energie-Inventar · Herzkoheränz · Bewusstes Gehen · Grounding · Pennebaker-Protokoll · TAN-Identifikation",e4_td2:"Beziehungskarte · 5-Minuten-Regel · KVT-Tagebuch · Realitätstest · Stärken-Zeitlinie · Mitgefühlsbrief · Werteklärung",e4_td3:"GFK und schwierige Gespräche · Verbindungsritual · Energie-Sinn-Matrix · Grenzen setzen · Brief an das Leben in 5 Jahren · Dauerhaftes Wartungsprogramm",e4_td4:"Neurologie des Burnouts · Maslach-Modell · Polyvagal-Theorie von Porges · 5 Wiederaufbau-Säulen · Alarmprotokolle",prog_01:"Programm 01",prog_02:"Programm 02",prog_03:"Programm 03",prog_04:"Programm 04",e1_f1_text:"Trotz Schlaf kommt die Energie nicht zurück. Du arbeitest, aber machst keine Fortschritte mehr. Dieses Programm erklärt warum, und wie man die Spirale biologisch umkehrt.",e1_f2_text:"Du wiederholst immer dieselben Fehler, dieselben schwierigen Beziehungen. Es ist kein Mangel an Willenskraft, es sind neuronale Schaltkreise, die umprogrammiert werden müssen.",e1_f3_text:"Neuroplastizität, Cortisol, Hippocampus, einschränkende Überzeugungen, Konzepte einfach erklärt, mit konkreten täglichen Anwendungen.",e1_f4_text:"Keine vagen Ratschläge. Jede Woche hat ein genaues Ziel, detaillierte Übungen und Beispiele zur Anleitung von Anfängern.",e3_f3_text:"Ebbinghaus, Roediger, Bjork, Walker, die Forscher, von denen dir niemand erzählt hat, die aber unser Verständnis des menschlichen Gedächtnisses revolutioniert haben.",e3_f4_text:"Lernen ohne Schulrahmen, allein, autonom. Dieses Programm gibt dir die Struktur und Methoden, um eigenständig und nachhaltig voranzukommen.",e2_p1:"Du hast etwas aufgebaut. Du bist früh aufgestanden, spät ins Bett gegangen. Und doch fragst du dich, ob du noch so leistungsfähig bist wie früher. Die Antwort liegt nicht in deinem Kalender, sie liegt in der Biologie deines Gehirns unter chronischem Stress.",e2_p2:"Dieses 90-Tage-Programm lehrt dich, deine kognitive Energie als dein wertvollstes Kapital zu verwalten. 4 voneinander abhängige Systeme. 13 detaillierte Wochen. Protokolle, die die besten Führungskräfte der Welt anwenden, endlich erklärt und an deine Realität angepasst.",footer_crisis:"Krisenhotlines: Deutschland 0800 111 0 111 · Österreich 142 · Schweiz 143 · Luxemburg 45 45 45 · UK 116 123 · España 024 · France 3114",footer_privacy:"Datenschutz",footer_contact:"Kontakt",footer_digital_policy:"Kaufpolitik für digitale Produkte",
+  },
+  es:{
+    nav_e1:"Reprograma",nav_e2:"Líder Equilibrado",nav_e3:"Aprende",nav_e4:"Salir Niebla",
+    hero_overline:"MindProtocol.com · Neurociencias & Mentalidad",
+    hero_h1:"Reprograma tu cerebro.<br>Transforma tu vida.",
+    hero_sub:"4 programas científicos de 90 días. Resultados medibles, no promesas.",
+    cat_title:"Los 4 programas",cat_sub:"Basados en neurociencias. Diseñados para la vida real.",
+    e1_title:"Reprograma tu Cerebro",e1_tag:"Dominar tu mente en un mundo caótico",
+    e2_title:"El Líder Equilibrado",e2_tag:"Rendimiento sostenible sin burnout",
+    e3_title:"Aprende a Aprender",e3_tag:"Las técnicas que la escuela nunca te enseñó",
+    e4_title:"Salir de la Niebla",e4_tag:"Reconstrucción tras el agotamiento emocional",
+    btn_buy:"Descargar ahora →",price_sub:"Acceso inmediato · PDF · 4 idiomas incluidos",
+    garantie:"🔒 Pago seguro · Producto digital · compra definitiva",
+    available_in:"Disponible en",temo_title:"Lo que dicen",faq_title:"Preguntas frecuentes",
+    pour_qui:"Para quién",contents_title:"Qué contiene el programa",systems_title:"Los 4 sistemas del programa",
+    e1_cover_title:"Reprograma<br>tu Cerebro",e1_cover_sub:"Dominar tu mente en un mundo caótico",
+    e1_badge:"Neurociencias & Mentalidad",e1_h2:"¿Y si finalmente usaras tu cerebro a su verdadero potencial?",
+    e1_p1:"Trabajas duro. Lees libros. Intentas cambiar. Pero algo siempre bloquea. ¿La razón? Nadie te ha explicado jamás cómo funciona realmente tu cerebro, y cómo reprogramarlo deliberadamente.",
+    e1_p2:"Este programa de 90 días te da las herramientas neurológicas concretas para transformar tus hábitos, gestionar el estrés en la fuente y superar las creencias que te frenan.",
+    e1_stat1:"Ejercicios prácticos",e1_stat2:"Partes completas",days_prog:"Días de programa",
+    e1_f1_title:"Te sientes agotado sin razón",e1_f2_title:"Repites los mismos patrones",
+    e1_f3_title:"Quieres entender cómo funciona tu cerebro",e1_f4_title:"Quieres un programa concreto, no consejos vagos",
+    e1_toc1:"Comprender tu cerebro para pilotarlo mejor",e1_toc2:"Aprender a aprender, técnicas de los mejores",
+    e1_toc3:"Absorber el estrés de la vida moderna",e1_toc4:"Reprogramar las creencias limitantes",e1_toc5:"Plan de acción ultra-detallado de 90 días",
+    e1_faq1q:"¿Para qué nivel? No tengo formación en neurociencias.",
+    e1_faq1a:"Este programa está diseñado para todos, de 16 a 65 años, sin conocimientos científicos previos.",
+    e1_faq2q:"¿Cuánto tiempo al día se necesita?",
+    e1_faq2a:"Entre 15 y 30 minutos al día. Diseñado para integrarse en una vida ocupada, no para añadir estrés.",
+    faq_what_q:"¿Qué recibo exactamente al comprar?",
+    faq_what_a:"Un PDF descargable inmediatamente de más de 150 páginas. Sin suscripción. Acceso de por vida. Legible en todos los dispositivos.",
+    faq_digital_q:"¿Cuál es la política de compra de producto digital?",
+    faq_digital_a:"De acuerdo con la directiva EU 2011/83/UE, los productos digitales descargados inmediatamente están exentos del derecho de desistimiento. La compra es definitiva.",
+    e1_cta_h2:"¿Listo/a para reprogramar<br>tu cerebro?",e1_cta_sub:"90 días. Herramientas científicas. Un programa que funciona en la vida real.",
+    e2_cover_title:"El Líder<br>Equilibrado",e2_badge:"Para emprendedores, managers y directivos",
+    e2_h2:"Un Líder Equilibrado no es menos ambicioso.<br>Es más peligroso, porque dura.",
+    e2_f1_title:"Tomas malas decisiones al final del día",e2_f1_text:"La fatiga decisional es real y medible. Este programa te enseña a gestionar tu presupuesto cognitivo como Bezos, Obama y Cook, con sistemas, no fuerza de voluntad.",
+    e2_f2_title:"Sientes que el burnout se acerca",e2_f2_text:"Señales tempranas, protocolos de emergencia, panel mensual. Este programa te enseña a detectar las señales antes de que sea demasiado tarde.",
+    e2_f3_title:"Quieres rendir de forma sostenible",e2_f3_text:"No 18 meses brillantes luego el colapso. Este programa construye una arquitectura personal que funciona aún en 10 años.",
+    e2_f4_title:"Tu equipo siente tu estrés",e2_f4_text:"Las neuronas espejo son reales. Un líder regulado crea seguridad psicológica donde el rendimiento colectivo se dispara.",
+    e2_toc1:"Gestión de la energía cognitiva",e2_toc2:"Organización y decisión",e2_toc3:"Liderazgo emocional",e2_toc4:"Visión, sentido y durabilidad",
+    e2_faq1q:"Soy emprendedor, no CEO de una gran empresa. ¿Es para mí?",
+    e2_faq1a:"Absolutamente. Este programa se dirige a cualquier persona que dirija, un equipo de 3 personas o una empresa de 300.",
+    e2_faq2q:"Ya estoy al borde del burnout. ¿Es este programa adecuado para mi estado?",
+    e2_faq2a:"Sí, empieza precisamente con la estabilización biológica. El Mes 1 está completamente dedicado a restaurar los cimientos antes de cualquier trabajo más profundo.",
+    e2_faq3a:"20 a 30 minutos al día. Los rituales se integran en las rutinas existentes. No se requieren días maratón.",
+    e2_cta_h2:"El líder sostenible<br>empieza aquí.",e2_cta_sub:"Construir sistemas que funcionen aún en 10 años.",
+    e3_cover_title:"Aprende<br>a Aprender",e3_cover_sub:"Memoria · Concentración · Métodos · Resultados",
+    e3_badge:"Neurociencias del Aprendizaje",
+    e3_h2:"La escuela te enseñó qué aprender.<br>Nadie te enseñó cómo.",
+    e3_p1:"Relees tus apuntes. Subrayas. Memorizas a última hora. Y pocas semanas después del examen, todo se ha ido. No es falta de inteligencia, es un método inadecuado. La ciencia del aprendizaje lo ha cambiado todo.",
+    e3_p2:"Repetición espaciada, recuerdo activo, método Feynman, palacio de memoria, técnicas validadas por cientos de estudios, explicadas simplemente, aplicables desde esta noche.",
+    e3_stat2:"Retención vs releer",e3_stat3:"Programa completo",
+    e3_f1_title:"Estudiantes hartos de memorizar",e3_f1_text:"Dejar de olvidar todo 2 semanas después del examen. Aprender de verdad, no solo memorizar temporalmente.",
+    e3_f2_title:"Jóvenes profesionales que quieren progresar rápido",e3_f2_text:"Aprender una nueva habilidad, un idioma, un campo técnico, el doble de rápido con los métodos correctos.",
+    e3_f3_title:"Curiosos que quieren entender su cerebro",e3_f4_title:"Reconvertidos y autodidactas",
+    e3_contents_title:"Lo que vas a dominar",
+    e3_toc1:"La ciencia del olvido y la memoria",e3_toc2:"Fundamentos · Mes 1",e3_toc3:"Técnicas avanzadas · Mes 2",e3_toc4:"Anclaje y sistema de por vida · Mes 3",e3_toc5:"Programa de 90 días + sistema PKM personal",
+    e3_faq1q:"¿Para qué edad? ¿Bachillerato? ¿Universidad? ¿Adulto en formación?",
+    e3_faq1a:"De 15 a 60 años. Los métodos de aprendizaje eficaz son universales, se aplican a cualquier contenido, a cualquier edad.",
+    e3_faq2q:"Ya uso tarjetas de memoria. ¿Qué me aporta este programa?",
+    e3_faq2a:"La mayoría de las personas usan tarjetas sin optimizarlas. Este programa te enseña a crear tarjetas realmente eficaces y a construir un sistema completo.",
+    e3_faq3q:"¿Es Anki obligatorio para seguir el programa?",
+    e3_faq3a:"No. Anki es muy recomendado como la herramienta más eficaz, pero el programa también ofrece una alternativa de calendario manual.",
+    e3_cta_h2:"Aprender es un superpoder.<br>Acabas de activarlo.",e3_cta_sub:"Las técnicas que la escuela nunca te enseñó, por 34,99€.",
+    e4_cover_title:"Salir<br>de la Niebla",e4_cover_sub:"Reconstrucción tras el agotamiento emocional",
+    e4_badge:"Burnout & Reconstrucción Emocional",
+    e4_h2:"No estás roto/a.<br>Estás agotado/a.<br>No es lo mismo.",
+    e4_p1:"Lo que sientes tiene un nombre. Y una biología. Y soluciones. No es falta de voluntad, no es un defecto de carácter, es un sistema nervioso sobrecargado que necesita una arquitectura de reconstrucción precisa.",
+    e4_p2:"Este programa de 90 días te guía semana a semana, con ejercicios accesibles incluso los días sin energía, ejemplos concretos para que nunca estés solo/a ante la página en blanco, y protocolos basados en la ciencia.",
+    e4_stat1:"Ejercicios de reconstrucción",e4_stat2:"Pilares científicos",e4_stat3:"Un paso a la vez",
+    e4_warning_title:"Nota importante:",e4_warning_text:"Este programa acompaña la reconstrucción progresiva, no las crisis agudas. Si experimentas pensamientos de desesperación: 024 (España) · 800 290 0024 (México) · (011) 5275-1135 (Argentina).",
+    e4_f1_title:"Atraviesas un agotamiento emocional",e4_f1_text:"Burnout, depresión leve a moderada, ansiedad crónica, pérdida de sentido. Este programa te acompaña con ejercicios calibrados para los días sin energía.",
+    e4_f2_title:"Ya no te reconoces",e4_f2_text:"El agotamiento erosiona la identidad. Este programa trabaja específicamente para reencontrar quién eres más allá de lo que atraviesas.",
+    e4_f3_title:"Has perdido el sentido",e4_f3_text:"Ya no sabes por qué haces lo que haces. El programa aborda directamente la clarificación de valores y la reconstrucción de una brújula interior.",
+    e4_f4_title:"Quieres avanzar, aunque sea despacio",e4_f4_text:"Este programa está hecho para personas agotadas. Cada ejercicio se puede hacer en 10 a 20 minutos.",
+    e4_contents_title:"Los 3 meses del programa",
+    e4_toc1:"Estabilización : Salir del estado de emergencia",e4_toc2:"Reconstrucción interior",e4_toc3:"Reinvención y anclaje",
+    e4_faq1q:"¿Este programa reemplaza el seguimiento psicológico o médico?",
+    e4_faq1a:"No, y no lo pretende. Este programa es un compañero de reconstrucción que puede coexistir con un seguimiento terapéutico.",
+    e4_faq2q:"Casi no tengo energía. ¿Puedo seguir este programa de todas formas?",
+    e4_faq2a:"Sí, fue diseñado precisamente para personas agotadas. Los ejercicios del Mes 1 requieren menos de 15 minutos al día.",
+    e4_faq3q:"¿Funciona para el burnout parental / maternal?",
+    e4_faq3a:"Sí. El programa está diseñado para el agotamiento emocional de cualquier tipo, profesional, parental, relacional, existencial.",
+    e4_faq4q:"¿Y si no puedo terminarlo en 90 días?",
+    e4_faq4a:"No es un problema. El programa no expira. Puedes retomarlo en cualquier momento, avanzar a tu propio ritmo. Lo que importa es avanzar, no seguir un calendario perfecto.",
+    e4_cta_h2:"Mereces sentirte mejor.<br>La luz siempre vuelve.",e4_cta_sub:"Un paso a la vez. Este programa está aquí para cada paso.",
+    footer_copy:"© 2025 MindProtocol · mind-protocol.com",footer_mentions:"Aviso legal",footer_cgv:"Términos y condiciones",faq_link:"Preguntas frecuentes",e1_btn_final:"Descargar por 39,99€ →",e2_btn_final:"Descargar por 64,99€ →",e3_btn_final:"Descargar por 34,99€ →",e4_btn_final:"Descargar por 49,99€ →",garantie_final:"🔒 Pago seguro · Compra definitiva · Producto digital · PDF inmediato",pdf_immediate:"PDF inmediato",e1_td1:"Neuroplasticidad · Formación de hábitos (regla de los 66 días) · Córtex prefrontal · Sistema límbico",e1_td2:"Método Feynman · Repetición espaciada · Flow · Mapas mentales · Concentración profunda",e1_td3:"Coherencia cardíaca · Mindfulness científico · Protocolo anti-estrés · Nutrición y cerebro",e1_td4:"TCC · Distorsiones cognitivas · Diálogo interior · Autocompasión (Kristin Neff)",e1_td5:"3 fases · 13 semanas · Acciones diarias · Tabla de seguimiento · Autoevaluación final",e2_td1:"Sueño del líder · Coherencia cardíaca · Nutrición pro-cerebro · Micro-recuperación NSDR",e2_td2:"GTD adaptado para líderes · Decisión por lotes · Matriz de delegación · Agenda del líder",e2_td3:"Protocolo STOP · Capital emocional del equipo · Seguridad psicológica · Comunicación bajo presión",e2_td4:"Clarificación del \'por qué\' · Prueba de la semana fantasma · Matriz energía-sentido · Carta al sucesor",e3_td1:"Curva de Ebbinghaus · Efecto de prueba (Roediger 2006) · Dificultades deseables · Neurogénesis del hipocampo",e3_td2:"Anki y repetición espaciada · Recuerdo de página en blanco · Preguntas antes de leer · Protocolo de sueño",e3_td3:"Método Feynman · Palacio de memoria · Mapas mentales · Trabajo profundo · Gestión de distracciones",e3_td4:"PKM · Zettelkasten · Planificación semanal · Protocolo físico · Sistema de aprendizaje personalizado",e4_td1:"Diario del programa · Inventario de energía · Coherencia cardíaca · Caminata consciente · Grounding · Protocolo Pennebaker · Identificación de PNA",e4_td2:"Mapa de relaciones · Regla de los 5 minutos · Diario TCC · Test de realidad · Línea de tiempo de fortalezas · Carta de compasión · Clarificación de valores",e4_td3:"CNV y conversaciones difíciles · Ritual de conexión · Matriz energía-sentido · Establecer límites · Carta a la vida en 5 años · Programa de mantenimiento permanente",e4_td4:"Neurología del burnout · Modelo de Maslach · Teoría polivagal de Porges · 5 pilares de la reconstrucción · Protocolos de alarma",prog_01:"Programa 01",prog_02:"Programa 02",prog_03:"Programa 03",prog_04:"Programa 04",e1_f1_text:"A pesar del sueño, la energía no vuelve. Trabajas pero ya no avanzas. Este programa te explica por qué, y cómo invertir la espiral biológicamente.",e1_f2_text:"Siempre repites los mismos errores, las mismas relaciones difíciles. No es falta de voluntad, son circuitos neuronales que reprogramar.",e1_f3_text:"Neuroplasticidad, cortisol, hipocampo, creencias limitantes, conceptos explicados simplemente, con aplicaciones cotidianas concretas.",e1_f4_text:"Sin consejos vagos. Cada semana tiene un objetivo preciso, ejercicios detallados y ejemplos para guiar a los principiantes.",e3_f3_text:"Ebbinghaus, Roediger, Bjork, Walker, los investigadores de los que nadie te habló pero que revolucionaron la comprensión de la memoria humana.",e3_f4_text:"Aprender sin un marco escolar, solo, de forma autónoma. Este programa te da la estructura y los métodos para progresar de forma independiente y sostenible.",e2_p1:"Has construido algo. Te levantaste temprano, te acostaste tarde. Y sin embargo te preguntas si eres tan eficaz como antes. La respuesta no está en tu agenda, está en la biología de tu cerebro bajo estrés crónico.",e2_p2:"Este programa de 90 días te enseña a gestionar tu energía cognitiva como tu activo más valioso. 4 sistemas interdependientes. 13 semanas detalladas. Protocolos que aplican los mejores líderes del mundo, por fin explicados y adaptados a tu realidad.",footer_crisis:"Líneas de crisis: España 024 · UK 116 123 · Deutschland 0800 111 0 111 · France 3114 · Suisse 143 · Luxembourg 45 45 45",footer_privacy:"Política de privacidad",footer_contact:"Contacto",footer_digital_policy:"Política de compra digital",
+  }
+};
+
+function toggleFaq(el){
+  var item = el.closest('.faq-item');
+  var wasOpen = item.classList.contains('open');
+  // Fermer toutes les FAQ du même bloc
+  var parent = item.closest('.faq');
+  if(parent){
+    parent.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+  }
+  // Ouvrir celle-là si elle était fermée
+  if(!wasOpen){ item.classList.add('open'); }
+}
+
+function setLang(lang){
+  localStorage.setItem('mp_lang',lang);
+  window.MP_LANG=lang;
+  applyLang(lang);
+  setTimeout(function(){ applyLang(lang); }, 50);
+  setTimeout(function(){ applyLang(lang); }, 300);
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.classList.toggle('active',b.textContent===lang.toUpperCase());
+  });
+}
+
+function applyLang(lang){
+  var t=CAT_I18N[lang]||CAT_I18N['fr'];
+  // Sauvegarder l'état des accordéons ouverts
+  var openItems=[];
+  document.querySelectorAll('.faq-item.open').forEach(function(item,idx){
+    openItems.push(item);
+  });
+  // Appliquer les traductions
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key=el.getAttribute('data-i18n');
+    if(t[key]===undefined) return;
+    el.innerHTML=t[key];
+  });
+  // Restaurer l'état ouvert
+  openItems.forEach(function(item){
+    item.classList.add('open');
+  });
+  document.documentElement.lang=lang;
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  var lang=window.MP_LANG||'fr';
+  // Premier passage
+  applyLang(lang);
+  // Deuxième passage après 100ms pour les éléments rendus après le premier paint
+  setTimeout(function(){ applyLang(lang); }, 100);
+  // Troisième passage après 500ms pour s'assurer que tout est traduit
+  setTimeout(function(){ applyLang(lang); }, 500);
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.classList.toggle('active',b.textContent===lang.toUpperCase());
+  });
+});
+
+// Appel immédiat aussi (avant DOMContentLoaded si possible)
+if(document.readyState==='complete'||document.readyState==='interactive'){
+  setTimeout(function(){
+    var lang=window.MP_LANG||'fr';
+    applyLang(lang);
+  },0);
+}
+</script>
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4fdb95d8b45636c',t:'MTc5Mjg5NDYzNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"9e9ab2a3c7914cb898b0632fb4fd6914","r":1,"spa":2}' crossorigin="anonymous"></script>
+<script>
+/* MindProtocol: transmet la langue choisie a Stripe (client_reference_id) */
+(function(){
+  function lang(){var l=window.MP_LANG||(function(){try{return localStorage.getItem('mp_lang')}catch(e){return null}})()||'fr';return ['fr','en','de','es'].indexOf(l)>-1?l:'fr';}
+  function tag(a){if(!a||!a.href||a.href.indexOf('buy.stripe.com')<0)return;a.href=a.href.split('?')[0]+'?client_reference_id='+lang();}
+  function tagAll(){document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(tag);}
+  ['mousedown','touchstart','click','focusin'].forEach(function(ev){document.addEventListener(ev,function(e){var a=e.target&&e.target.closest?e.target.closest('a[href*="buy.stripe.com"]'):null;tag(a);},true);});
+  document.addEventListener('DOMContentLoaded',tagAll);
+})();
+</script>
+</body>
+</html>
