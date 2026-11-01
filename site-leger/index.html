@@ -780,7 +780,7 @@ reveals.forEach(r=>obs.observe(r));
 /* MindProtocol: transmet la langue choisie a Stripe (client_reference_id) */
 (function(){
   function lang(){var l=window.MP_LANG||(function(){try{return localStorage.getItem('mp_lang')}catch(e){return null}})()||'fr';return ['fr','en','de','es'].indexOf(l)>-1?l:'fr';}
-  function tag(a){if(!a||!a.href||a.href.indexOf('buy.stripe.com')<0)return;a.href=a.href.split('?')[0]+'?client_reference_id='+lang();}
+  function tag(a){if(!a||!a.href||a.href.indexOf('buy.stripe.com')<0)return;a.href=a.href.split('?')[0]+'?client_reference_id='+lang()+'&locale='+lang();}
   function tagAll(){document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(tag);}
   ['mousedown','touchstart','click','focusin'].forEach(function(ev){document.addEventListener(ev,function(e){var a=e.target&&e.target.closest?e.target.closest('a[href*="buy.stripe.com"]'):null;tag(a);},true);});
   document.addEventListener('DOMContentLoaded',tagAll);
