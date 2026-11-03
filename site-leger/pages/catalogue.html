@@ -1822,7 +1822,8 @@ if(document.readyState==='complete'||document.readyState==='interactive'){
 /* MindProtocol: transmet la langue choisie a Stripe (client_reference_id) */
 (function(){
   function lang(){var l=window.MP_LANG||(function(){try{return localStorage.getItem('mp_lang')}catch(e){return null}})()||'fr';return ['fr','en','de','es'].indexOf(l)>-1?l:'fr';}
-  function tag(a){if(!a||!a.href||a.href.indexOf('buy.stripe.com')<0)return;a.href=a.href.split('?')[0]+'?client_reference_id='+lang()+'&locale='+lang();}
+  var MPL={'8x25kDgEp8PG0IM6S2eZ205':{en:'4gMbJ1co99TKdvy90aeZ20c',de:'8x25kDdsdd5W4Z2foyeZ20d',es:'fZu28r0Fr3vmbnq0tEeZ20e'},'bJebJ10Frea0gHKgsCeZ208':{en:'bJebJ187T9TKdvyccmeZ209',de:'8x25kD0Fr0ja77a5NYeZ20a',es:'14A6oHfAl8PG2QU6S2eZ20b'},'cNi7sLag1gi89fifoyeZ206':{en:'4gM8wPbk5d5W0IM2BMeZ20f',de:'00w14n73Pfe42QU5NYeZ20g',es:'7sYcN54VH3vm2QU1xIeZ20h'},'3cIaEXco95DufDG6S2eZ203':{en:'eVq8wP2Nzea077aa4eeZ20i',de:'14A14n1Jv8PG77a5NYeZ20j',es:'4gM00j73P8PG3UYb8ieZ20k'},'5kQfZhgEp4zqgHKgsCeZ207':{en:'6oU5kD9bXc1S3UYdgqeZ20l',de:'4gM6oHco9gi84Z2dgqeZ20m',es:'5kQ6oHfAlaXOezC5NYeZ20n'}};
+  function tag(a){if(!a||!a.href||a.href.indexOf('buy.stripe.com')<0)return;var p=a.href.split('?')[0],i=p.lastIndexOf('/')+1,o=a.getAttribute('data-fr')||p.slice(i),l=lang(),m=MPL[o];a.setAttribute('data-fr',o);a.href=p.slice(0,i)+((m&&m[l])||o)+'?client_reference_id='+l+'&locale='+l;}
   function tagAll(){document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(tag);}
   ['mousedown','touchstart','click','focusin'].forEach(function(ev){document.addEventListener(ev,function(e){var a=e.target&&e.target.closest?e.target.closest('a[href*="buy.stripe.com"]'):null;tag(a);},true);});
   document.addEventListener('DOMContentLoaded',tagAll);
